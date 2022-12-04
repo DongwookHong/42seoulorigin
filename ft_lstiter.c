@@ -28,6 +28,7 @@ void ft_lstiter(t_list *lst, void (*f)(void *))
         lst = lst ->next;
     }
 }
+/*
 int main ()
 {
      t_list	*head;
@@ -80,4 +81,4 @@ int main ()
         head = head->next;
     }
 
-}
+}*/

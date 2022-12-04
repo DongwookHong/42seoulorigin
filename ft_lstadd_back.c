@@ -17,48 +17,52 @@ void    ft_lstadd_back(t_list **lst, t_list *new)
     t_list *temp;
     
     temp = *lst;
-    if (!lst || !new)
+    if (!lst)
         return ;
-        
-    while ((*lst)-> next)
-        (*lst) = (*lst) -> next;
-    (*lst) -> next = new;
-    *lst = temp;
-}
-
-
-int main()
-{
-
-    t_list *head; 
-    t_list *node1;
-    t_list *node2;
-    t_list *node3;
-
-    head = (t_list *)malloc(sizeof(t_list));
-    node1 = (t_list *)malloc(sizeof(t_list));
-    node2 = (t_list *)malloc(sizeof(t_list));
-    node3 = (t_list *)malloc(sizeof(t_list));
-    
-    
-    char * l1  = "power";
-    char * l2 =   "hard";
-    char * l3 = "coding ";
-
-    head -> next = node1;
-
-    node1 -> content = l1;
-    node1 -> next = node2;
-    node2 -> content = l2;
-    node2 -> next = NULL;
-
-    node3 -> content= l3;
-
-    //ft_lstadd_back(&head,node3);
-    while(head -> next )
+    else if (!(*lst))
+        *lst = new;
+    else
     {
-        
-        printf("%s \n", head -> content);
-        head = head -> next;
+        while ((*lst)-> next)
+           (*lst) = (*lst) -> next;
+        (*lst) -> next = new;
+        *lst = temp;
     }
 }
+
+
+// int main()
+// {
+
+//     t_list *head; 
+//     t_list *node1;
+//     t_list *node2;
+//     t_list *node3;
+
+//     head = (t_list *)malloc(sizeof(t_list));
+//     node1 = (t_list *)malloc(sizeof(t_list));
+//     node2 = (t_list *)malloc(sizeof(t_list));
+//     node3 = (t_list *)malloc(sizeof(t_list));
+    
+    
+//     char * l1  = "power";
+//     char * l2 =   "hard";
+//     char * l3 = "coding ";
+
+//     head -> next = node1;
+
+//     node1 -> content = l1;
+//     node1 -> next = node2;
+//     node2 -> content = l2;
+//     node2 -> next = NULL;
+
+//     node3 -> content= l3;
+
+//     //ft_lstadd_back(&head,node3);
+//     while(head -> next )
+//     {
+        
+//         printf("%s \n", head -> content);
+//         head = head -> next;
+//     }
+// }

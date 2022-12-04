@@ -23,39 +23,39 @@ t_list  *ft_lstnew(void * content)
     next1 -> next = NULL;
     return (next1);
 }
-#include <stdio.h>
-int main()
-{
-	t_list  *next;
-    t_list  *next2;
-    t_list  *next3;
-    t_list  *next4;
+// #include <stdio.h>
+// int main()
+// {
+// 	t_list  *next;
+//     t_list  *next2;
+//     t_list  *next3;
+//     t_list  *next4;
     
-    char l1[10] = "abcedf";// stack
-    char *abc = "abcdef";// data
+//     char l1[10] = "abcedf";// stack
+//     char *abc = "abcdef";// data
    
-    int l2[10] ={1,2,3,4};
+//     int l2[10] ={1,2,3,4};
 
-int *arr = l2;
-  //  int *l3 = {1,2};
+// int *arr = l2;
+//   //  int *l3 = {1,2};
 
 
-    next = ft_lstnew(abc);
-    next2  = ft_lstnew(l1);
-    next3 = ft_lstnew(arr);
-    //next4  = ft_lstnew(l3);
-    printf("%s\n", next -> content) ;
-    printf("%s\n", next2 -> content);
-    //  for(int i = 0; i < 5; ++i)
-    // {
-    //     printf("%d : \n", ((int *)next3->content)[i]);
-    // }
+//     next = ft_lstnew(abc);
+//     next2  = ft_lstnew(l1);
+//     next3 = ft_lstnew(arr);
+//     //next4  = ft_lstnew(l3);
+//     printf("%s\n", next -> content) ;
+//     printf("%s\n", next2 -> content);
+//     //  for(int i = 0; i < 5; ++i)
+//     // {
+//     //     printf("%d : \n", ((int *)next3->content)[i]);
+//     // }
 
-    // for(int i = 0; i < 5; ++i)
-    // {
-    //     printf("%d : ", ((int *)next3->content)[i]);
-    // }
-    //printf("%d\n", next2 -> content);
+//     // for(int i = 0; i < 5; ++i)
+//     // {
+//     //     printf("%d : ", ((int *)next3->content)[i]);
+//     // }
+//     //printf("%d\n", next2 -> content);
     
 
-}
+// }

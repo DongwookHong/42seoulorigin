@@ -19,18 +19,33 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*head;
-	t_list	*ptr;
+	void * temp;
 
-	new = ft_list(f(lst -> content));
-	// if(!new)
-	// 	ft_lstclear(&head,del);
-	if (!lst || !f)
+	head = NULL;
+	
+	if (!lst || !f )
 		return (0);
 	while(lst)
 	{
-		f(new->content);
+		temp = f(lst ->content);
+		new = ft_list(temp);
+		if(new == NULL || temp == NULL)
+		{
+			new = head;
+			while(new && del == NULL)
+			{
+				free(new -> content);
+				new = new->next;
+			}
+			if(!temp)
+				free(temp);
+			ft_lstclear(&head,del);
+			return (0);
+		}
+		ft_lstadd_back(&head,new);
+		
 		lst = lst ->next;
 	}
-	return (new);
+	return (head);
 }
 //주소값 리턴 - > 공간할 당 - >  if 할당 실패  

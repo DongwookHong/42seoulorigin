@@ -24,7 +24,7 @@ int ft_lstsize(t_list   *lst)
     }
     return (i);
 }
-
+/*
 #include <stdio.h>
 int main(){
 
@@ -49,4 +49,4 @@ int main(){
     l3 -> next = NULL;
 
     printf("%d" , ft_lstsize(l1));
-}
+}*/

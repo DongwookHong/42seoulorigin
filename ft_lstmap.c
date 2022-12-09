@@ -35,7 +35,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del1)(void *))
 	t_list	*new;
 	t_list	*head;
 	void * temp;
-	int i=0;
+
 	if (!lst || !f || !del1)
 		return (0);
 	head = NULL;
@@ -43,9 +43,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del1)(void *))
 	{
 		temp = f(lst ->content);
 		new = ft_lstnew(temp);
-		
-		if (i ==2)
-			new =0;
+
 		if(new == NULL)
 		{
 			ft_lstclear(&head,del1);
@@ -54,7 +52,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del1)(void *))
 		}
 		ft_lstadd_back(&head,new);
 		lst = lst ->next;
-		i++;
+		
 	}
 	return (head);
 }

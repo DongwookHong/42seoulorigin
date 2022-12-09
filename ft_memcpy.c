@@ -27,34 +27,36 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	return (dst);
 }
 
-/*
-#include <stdio.h>
-int main(){
 
-    char str1[] ="abcdef";
-	    char str2[] ="abcdef";
-		    char str3[] ="abcdef";
-			    char str4[] ="abcdef";
+// #include <stdio.h>
+// int main(){
+
+//     char str1[] ="abcdef";
+				
+// 	char str2[] ="abcdef";
+					
+// 	// char str3[] ="abcdef";
+// 	// char str4[] ="abcdef";
     
 
-    // ft_memcpy(str1,str,7);
-    // printf("%s\n", str1);
-    // memcpy(str1,str,7);
-    // printf("%s\n", str1);
-	// printf("-------");
-	// ft_memcpy(str1,str,0);
-    // printf("%s\n", str1);
-    // memcpy(str1,str,0);
-    // printf("%s\n", str1);
-	// printf("-------");
-	ft_memcpy(&str1[2],str1,4);
-    printf("%s\n", str1);
-    memcpy(&str2[2],str2,4);
-    printf("%s\n", str2);
-	printf("-------");
-	// ft_memcpy(str1,str,7);
-    // printf("%s\n", str1);
-    // memcpy(str1,str,7);
-    // printf("%s\n", str1);
+//     // ft_memcpy(str1,str,7);
+//     // printf("%s\n", str1);
+//     // memcpy(str1,str,7);
+//     // printf("%s\n", str1);
+// 	// printf("-------");
+// 	// ft_memcpy(str1,str,0);
+//     // printf("%s\n", str1);
+//     // memcpy(str1,str,0);
+//     // printf("%s\n", str1);
+// 	// printf("-------");
+// 	ft_memcpy(&str1[2],str1,4);
+//     printf("%s\n", str1);
+//     memcpy(&str2[2],str2,4);
+//     printf("%s\n", str2);
+// 	printf("-------");
+// 	// ft_memcpy(str1,str,7);
+//     // printf("%s\n", str1);
+//     // memcpy(str1,str,7);
+//     // printf("%s\n", str1);
  
-}*/
+// }

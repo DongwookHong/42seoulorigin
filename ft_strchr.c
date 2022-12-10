@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 15:30:04 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/28 16:24:59 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:28:55 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_strchr(const char *s, int c)
 		return (0);
 	return (0);
 }
+
 /*
 int main()
 {

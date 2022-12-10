@@ -6,27 +6,21 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 20:36:41 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/03 18:28:49 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/10 14:02:03 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void f(void *number)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    *(char *)number += 3;
-    // return (number);
-}
-
-void ft_lstiter(t_list *lst, void (*f)(void *))
-{
-    if (!lst || !f)
-        return ;
-    while(lst)
-    {
-        f(lst -> content);
-        lst = lst ->next;
-    }
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst -> content);
+		lst = lst ->next;
+	}
 }
 /*
 int main ()

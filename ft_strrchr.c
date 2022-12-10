@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:26:11 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/09 19:54:11 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:48:11 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t			str_len;
+	size_t	str_len;
 	char	find;
 
 	str_len = ft_strlen(s);

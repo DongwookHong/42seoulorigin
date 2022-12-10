@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:33:03 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/09 22:08:31 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:48:57 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!dest)
 		return (0);
 	i = 0;
-	if(size)
+	if (size)
 		while (i < len && s[start])
 			dest[i++] = s[start++];
 	dest[i] = '\0';

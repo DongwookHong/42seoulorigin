@@ -6,24 +6,20 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:58:26 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/03 22:35:52 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/10 14:00:29 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list  *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-    if (!lst)
-        return (0);
-    while(lst->next)
-    {
-        //printf("%s ",lst ->content);
-        lst = lst -> next;
-    }
-    return lst;   
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst -> next;
+	return (lst);
 }
-
 /*
 int main()
 {

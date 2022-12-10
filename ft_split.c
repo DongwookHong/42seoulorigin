@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:25:41 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/28 16:39:09 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:41:48 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ char	*put_word(char const *s, char c, char **str)
 	i = 0;
 	len_word = str_len(s, c);
 	word = (char *)malloc(sizeof(char) * (len_word + 1));
+	if (!word)
+		return (0);
 	while (i < len_word)
 	{
-		if (!word)
-			return (*ft_free_split(str, i));
 		word[i] = s[i];
 		i++;
 	}
@@ -90,10 +90,10 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s)
 		{
-			ptr = put_word(s, c, string);
-			if (!ptr)
-				return (NULL);
-			string[index++] = ptr;
+			string[index] = put_word(s, c, string);
+			if (!string[index])
+				return (ft_free_split(string, index - 1));
+			index++;
 		}
 		while (*s && *s != c)
 			s++;
@@ -103,12 +103,11 @@ char	**ft_split(char const *s, char c)
 }
 
 // int main()
-// {
-// 	 /*norm check ✅ */
+// { 
 //     int i = 0;
 //     char **sk;
-//     char strs[] = "w,, k,a,c";
-//     char s = ',';
+//     char strs[] = "hello!";
+//     char s = ' ';
 //     sk = ft_split(strs, s);
 //     while (sk[i])
 //     {

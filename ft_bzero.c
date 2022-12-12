@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 18:45:19 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/21 14:31:05 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:56:48 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-/*
-int main() {
-    char rew [] = "abrew";
-    
-    ft_bzero(rew, 3);
-    printf("%c\n" ,rew[5]);
-    bzero(rew,3);
-    printf("%c\n", rew[5]);
-}
-*/

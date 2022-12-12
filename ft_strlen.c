@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:42:20 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/09 18:51:34 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/11 14:58:58 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char abc[] = "aabcdef";
-	
-	printf("%d", ft_strlen(abc));
-	printf("%lu", strlen(abc));
-}
-*/

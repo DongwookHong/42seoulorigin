@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:25:03 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/27 17:03:42 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/11 14:56:36 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,3 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-/*
-#include <stdio.h>
-int main ()
-{
-	int a = 5;
-	
-	printf("%d", ft_isdigit(a));
-}
-
-
-
-*/

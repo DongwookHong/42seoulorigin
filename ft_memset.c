@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:23:02 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/28 16:39:47 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/11 15:10:21 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,3 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return ((void *)b);
 }
-
-/*
-#include <stdio.h>
-int main()
-{
-    char abc[] = "987654123";
-	char c = 48;
-	int	b =	48;
-    printf("내함수는 :%s\n", ft_memset(abc,-1,4));
-    printf("원본함수는 :%s\n", memset(abc,-1,4));
-    printf("내함수는 :%s\n", ft_memset(abc,257,4));
-    printf("원본함수는 :%s\n", memset(abc,257,4));
-    printf("내함수는 :%s\n", ft_memset(abc,48,4));
-    printf("원본함수는 :%s\n", memset(abc,48,4));
-
-	printf ("%d", c);
-	printf ("%d", b);
-
-
-}
-*/

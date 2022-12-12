@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:58:01 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/27 17:03:30 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/11 14:56:26 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	int a; 
-	
-	a = 30;
-
-	printf("%d", ft_isalpha(a));
-}
-*/

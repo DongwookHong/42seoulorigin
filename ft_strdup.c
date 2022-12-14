@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:12:46 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/27 17:05:52 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:58:50 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *s1)
 	abc = (char *)malloc(sizeof(char) * length + 1);
 	if (!abc)
 		return (0);
-	while (i <= length)
+	while (i < length)
 	{
 		abc[i] = s1[i];
 		i++;

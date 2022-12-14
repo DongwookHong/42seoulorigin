@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 15:30:04 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/09 19:28:55 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:16:42 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	find;
+	char	find;
 
-	find = (unsigned char)c;
+	find = (char)c;
 	while (*s && *s != find)
 		s++;
 	if (*s == find)
 		return ((char *)s);
-	else
-		return (0);
 	return (0);
 }
 

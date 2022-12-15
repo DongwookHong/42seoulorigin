@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:52:58 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/28 16:32:48 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:27:57 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	dest[i] = '\0';
 	return (dest);
 }	
-// a 란 배열 을 대입했을때 a 변환 x 벗 b를 반환 !! 

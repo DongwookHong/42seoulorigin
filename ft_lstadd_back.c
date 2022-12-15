@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 20:13:33 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/10 14:13:02 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:25:08 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		while ((*lst)-> next)
 			(*lst) = (*lst)-> next;
 		(*lst)-> next = new;
-		*lst = temp;
+		(*lst) = temp;
 	}
 }

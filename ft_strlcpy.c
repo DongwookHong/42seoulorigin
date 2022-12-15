@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:12:59 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/27 17:06:03 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:27:46 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (src_len);
 }
-/*
-int main()
-{
-	char dest[] = "abcde";
-	char  src[]= "rew";
-
-	printf("%lu\n", ft_strlcpy(dest,src,2));
-	printf("%lu\n", strlcpy(dest,src,2));
-}*/

@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:30:26 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/14 18:14:24 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:27:42 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }
-// #include <stdio.h>
-// int main()
-// {
-// 	char dest[1000];
-// 	dest[0] = '\0';
-//     dest[11] = 'a';
-//     printf("%lu \n",ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
-//     write(1, "\n", 1);
-//     write(1, dest, 15);
-// }

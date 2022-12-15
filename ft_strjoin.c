@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:13:00 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/28 16:34:02 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:27:37 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	dest[i] = '\0';
 	return (dest);
 }
-/*
-int main()
-{
-
-	char *abc = 0;
-	char b[] = "we are ";
-
-	printf("%s\n", ft_strjoin(abc, b));
-	
-
-}
-*/

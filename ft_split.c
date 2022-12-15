@@ -6,68 +6,71 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:25:41 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/10 16:41:48 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:33:45 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_str(char const *s, char c)
+char	**free_all(char **str, size_t i)
+{
+	size_t	j;
+
+	j = 0;
+	while (j < i)
+	{
+		free(str[j]);
+		j++;
+	}
+	free (str);
+	return (0);
+}
+
+int	count_str(char const *str, char ch)
 {
 	int	flag;
 	int	cnt;
 
 	flag = 1;
 	cnt = 0;
-	while (*s)
+	while (*str)
 	{
-		if (flag == 1 && *s != c)
+		if (flag == 1 && (*str) != ch)
 		{
 			flag = 0;
-			cnt++;
+			cnt ++;
 		}
-		if (flag == 0 && *s == c)
+		if (flag == 0 && (*str) == ch)
 			flag = 1;
-		s++;
+		str++;
 	}
 	return (cnt);
 }
 
-char	**ft_free_split(char **str, int order)
+int	str_sep_len(char const *str, char ch)
 {
-	while (order >= 0)
-	{
-		free(str[order]);
-		order--;
-	}
-	free(str);
-	return (0);
-}
-
-size_t	str_len(char const *s, char c)
-{
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (str[i] && str[i] != ch)
 		i++;
 	return (i);
 }
 
-char	*put_word(char const *s, char c, char **str)
-{
-	size_t	len_word;
-	size_t	i;
+char	*put_word(char const *str, char ch)
+{	
+	int		len_word;
+	int		i;
 	char	*word;
 
 	i = 0;
-	len_word = str_len(s, c);
+	len_word = str_sep_len(str, ch);
 	word = (char *)malloc(sizeof(char) * (len_word + 1));
 	if (!word)
 		return (0);
 	while (i < len_word)
 	{
-		word[i] = s[i];
+		word[i] = str[i];
 		i++;
 	}
 	word[i] = '\0';
@@ -76,43 +79,29 @@ char	*put_word(char const *s, char c, char **str)
 
 char	**ft_split(char const *s, char c)
 {
+	int		cnt;
 	char	**string;
-	size_t	index;
-	char	*ptr;
+	int		i;
 
-	index = 0;
-	string = (char **)malloc(sizeof(char *) * (count_str(s, c) + 1));
+	cnt = count_str(s, c);
+	i = 0;
+	string = (char **)malloc(sizeof(char *) * (cnt + 1));
 	if (!string)
 		return (0);
-	while (*s)
+	while (*s != '\0')
 	{
-		while (*s && *s == c)
+		while (*s && ((*s) == c))
 			s++;
 		if (*s)
 		{
-			string[index] = put_word(s, c, string);
-			if (!string[index])
-				return (ft_free_split(string, index - 1));
-			index++;
+			string[i] = put_word(s, c);
+			if (!string[i])
+				return (free_all(string, i));
+			i++;
 		}
-		while (*s && *s != c)
+		while (*s && ((*s) != c))
 			s++;
 	}
-	string[index] = 0;
+	string[i] = 0;
 	return (string);
 }
-
-// int main()
-// { 
-//     int i = 0;
-//     char **sk;
-//     char strs[] = "hello!";
-//     char s = ' ';
-//     sk = ft_split(strs, s);
-//     while (sk[i])
-//     {
-//         printf("%s\n", sk[i]);
-//         i++;
-//     }
-//     return 0;
-// }

@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:26:31 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/28 16:01:29 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:25:05 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	int a = 2147483647;
-	int b = -2147483648;
-	int c = 0;
-	printf("내꺼는%s\n", ft_itoa(a));
-//	printf("원본은 %s\n", itoa(a));
-	printf("------------\n");
-	printf("내꺼는%s\n", ft_itoa(b));
-	//printf("원본은 %s\n", itoa(b));
-	printf("------------\n");
-	printf("내꺼는%s\n", ft_itoa(0));
-	//printf("원본은 %s\n", itoa(b));
-	printf("------------\n");
-}
-*/

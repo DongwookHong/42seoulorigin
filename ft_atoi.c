@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 15:39:33 by donghong          #+#    #+#             */
-/*   Updated: 2022/11/28 16:48:44 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:24:37 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,3 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * result);
 }
-/*
-int main()
-{
-	char abc[20] = "-2147483648";
-	char rew[20] = "2147483647";
-	char zxc[20] = "0";
-	printf("내결과는%d\n", ft_atoi(abc));
-	printf(" 원본%d\n", atoi(abc));
-	printf("내결과는%d\n", ft_atoi(rew));
-	printf(" 원본%d\n", atoi(rew));
-	printf("내결과는%d\n", ft_atoi(zxc));
-	printf(" 원본%d\n", atoi(zxc));
-}
-*/

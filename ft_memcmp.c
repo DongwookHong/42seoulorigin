@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:20:47 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/09 20:06:40 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 10:26:56 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,38 +30,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-/*
-int main ()
-{
- 	char  abc[] = "abcdef";
-	char  bre[] = "abcded";
-
-	char  str1[] = "adef";
-	char  str2[] = "abef";
-
-	char  str3[5] = "1234";
-	char  str4[5] = "123";
-
-	printf("원본 %d \n" , memcmp(abc,bre,4) );	
-	printf("내꺼 %d \n" , ft_memcmp(abc,bre,4) );	
-	printf("------------------------\n");
-
-	printf("원본 %d \n" , memcmp(str1,str2,6));	
-	printf("내꺼 %d \n" , ft_memcmp(str1,str2,6) );	
-	printf("------------------------\n");
-
-	printf("원본 %d \n" , memcmp(str1,str2,0) );	
-	printf("내꺼 %d \n" , ft_memcmp(str1,str2,0) );	
-	printf("------------------------\n");
-
-	printf("원본 %d \n" , memcmp(str3,str4,3) );	
-	printf("내꺼 %d \n" , ft_memcmp(str3,str4,3) );	
-	printf("------------------------\n");
-
-	printf("원본 %d \n" , memcmp(str3,str4,5) );	
-	printf("내꺼 %d \n" , ft_memcmp(str3,str4,5) );	
-	printf("------------------------\n");
-
-
-}
-*/

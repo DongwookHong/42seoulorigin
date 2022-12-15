@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:33:03 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/15 09:13:45 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:12:48 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dest[i] = '\0';
 	return (dest);
 }
-
-// int main()
-// {
-//     char origin[20] = "abcde12345\0";
-// 	char *rst;
-// 	int idx_start=4, len=7;
-
-// 	printf("origin string\t[%s]\n", origin);
-// 	printf("start\t\t[%d]\nlen\t\t[%d]\n", idx_start, len);
-// 	rst = ft_substr(origin, idx_start, len);
-// 	printf("result\t\t[%s]\n", rst);
-// }

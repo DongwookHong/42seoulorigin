@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:13:00 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/15 10:27:37 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:12:41 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!(s1) || !(s2))
 		return (0);
-	dest = (char *)malloc(sizeof(char) *(strlen(s1) + strlen(s2) + 1));
+	dest = (char *)malloc(sizeof(char) *(ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!dest)
 		return (0);
 	while (s1[i])

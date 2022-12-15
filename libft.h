@@ -6,14 +6,13 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:07:19 by donghong          #+#    #+#             */
-/*   Updated: 2022/12/15 10:32:55 by donghong         ###   ########.fr       */
+/*   Updated: 2022/12/15 11:18:56 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 

@@ -10,3 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef gnl_H
+# define gnl_H
+
+
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+
+typedef struct s_list
+{
+    char            *content;
+    int             fd;
+    struct s_lst    *next;
+}t_list;
+
+
+#endif

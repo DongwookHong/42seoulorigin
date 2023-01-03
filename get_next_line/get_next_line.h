@@ -10,12 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef gnl_H
-# define gnl_H
+
+#ifndef get_next_line_H
+# define get_next_line_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 
 #include <unistd.h>
-#include <fcntl.h>
 #include <stdlib.h>
 
 typedef struct s_list
@@ -25,5 +28,12 @@ typedef struct s_list
     struct s_lst    *next;
 }t_list;
 
+char *get_next_line(int fd);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlen(const char *s);
+int ft_strchr(const char *s, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+t_list	*ft_lstnew(void *content);
 
 #endif

@@ -32,8 +32,7 @@ char    *fdread(int fd, t_list **save)
 		if (temp [i] == '\n')
 			break;
 	}
-	temp = ft_substr(str,0,i+1);
-	str = ft_substr(str,i+1,BUFFER_SIZE);
+	
 	return (front);
 }
 

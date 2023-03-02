@@ -1,5 +1,16 @@
-#include "get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/02 14:01:23 by donghong          #+#    #+#             */
+/*   Updated: 2023/03/02 14:51:47 by donghong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "get_next_line.h"
 
 t_list	*ft_lstnew(int fd)
 {
@@ -7,10 +18,10 @@ t_list	*ft_lstnew(int fd)
 
 	next1 = (t_list *)malloc(sizeof(t_list));
 	if (!next1)
-		return	(NULL);
-	next1 -> content = NULL;
-	next1 -> next = NULL;
-	next1 -> fd = fd;
+		return (NULL);
+	next1->content = NULL;
+	next1->next = NULL;
+	next1->fd = fd;
 	return (next1);
 }
 
@@ -20,12 +31,11 @@ size_t	ft_strlen(char *s)
 
 	i = 0;
 	if (s == NULL)
-		return 0;
+		return (0);
 	while (s[i])
 		i++;
 	return (i);
 }
-
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {
@@ -43,9 +53,8 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	if (dest == NULL)
 		return (NULL);
 	i = 0;
-	if (size)
 	while (i < len && s[start])
-			dest[i++] = s[start++];
+		dest[i++] = s[start++];
 	dest[i] = '\0';
 	return (dest);
 }
@@ -70,13 +79,12 @@ char	*ft_strdup(char *s1)
 	return (abc);
 }
 
-
 void	lstfree(t_list **head)
 {
 	if ((*head)->content != NULL)
 	{
-		free ((*head)->content);
+		free((*head)->content);
 		(*head)->content = NULL;
 	}
-	free (*head);
+	free(*head);
 }

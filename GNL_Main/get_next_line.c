@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/02 14:02:04 by donghong          #+#    #+#             */
+/*   Updated: 2023/03/02 15:54:27 by donghong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
-// #define BUFFER_SIZE 10
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
@@ -48,14 +59,49 @@ int ft_strchr(char *s, int c)
     return (-1);
 }
 
+char *divide(t_list **head, int i)
+{
+	char   *fileContent;
+   	 char    *freeContent;
+
+	int j ;
+	j = ft_strlen((*head) -> content);
+	freeContent = (*head) -> content;
+
+	if ((*head)->content == NULL)
+			return (NULL);
+	else
+	{
+			if (i == -1)
+			{
+				i = ft_strchr((*head)->content, '\n');
+				if (i == -1)
+				{
+					fileContent = ft_strdup((*head)->content);
+					free((*head)->content);
+					(*head)->content = NULL;
+					return (fileContent);
+				}
+			}
+			fileContent = ft_substr((*head)->content, 0, i + 1);
+			(*head)->content = ft_substr((*head)->content, i + 1, j - i - 1);
+			if ((*head)->content[0] == '\0')
+			{
+				free((*head)->content);
+				(*head)->content = NULL;
+			}
+			free(freeContent);
+		}
+	return (fileContent);
+}
+
+
 char *read_gnl(int fd,t_list **head)
 {
     ssize_t read_file;
     char    tmp[BUFFER_SIZE +1];
     char    *fileContent;
-	char 	*freeContent;
     int     i;
-    int     j;
     
     i = -1;
     if (read(fd,0,0)== -1)
@@ -72,33 +118,7 @@ char *read_gnl(int fd,t_list **head)
             break;
     }
 
-	j = ft_strlen((*head)-> content);
-	freeContent = (*head)->content;
-	if ((*head) -> content == NULL)
-		return NULL;
-    else 
-    {
-        if (i == -1)
-        {
-            i = ft_strchr ((*head)->content, '\n');
-            if (i == -1)
-            {
-                fileContent = ft_strdup((*head) -> content);
-		        free ((*head)->content);
-		        (*head)->content = NULL;
-                return (fileContent);
-            }
-           
-        }
-        fileContent = ft_substr((*head) -> content, 0, i+1);
-        (*head) ->content = ft_substr((*head) -> content, i + 1, j-i+1);
-        if((*head) -> content[0] == '\0')
-        {
-            free ((*head)->content);
-		    (*head)->content = NULL;   
-        }
-        free(freeContent);
-    }
+	fileContent = divide(head, i);
 	
     return (fileContent);
 }
@@ -125,20 +145,3 @@ char *get_next_line(int fd)
 
     return save_buff;
 }
-
-// int main()
-// {
-
-// 	int fd;
-// 	size_t rd_size;
-// 	char buff[1000];
-
-// 	fd = open( "./only_nl.txt", O_RDONLY);
-// 	char *s;
-// 	for (int i = 0; i < 5; i++)
-// 	{
-// 		s = get_next_line(fd);
-// 		printf("%s", s);
-// 	}
-//    system("leaks a.out");
-// }

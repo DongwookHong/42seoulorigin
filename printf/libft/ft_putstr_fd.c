@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/04 18:56:17 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/07 20:26:24 by donghong         ###   ########.fr       */
+/*   Created: 2022/11/18 21:44:35 by donghong          #+#    #+#             */
+/*   Updated: 2022/12/15 10:33:14 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-
-int ft_printf(char * form, ...)
+void	ft_putstr_fd(char *s, int fd)
 {
-    va_list ap;
-    va_start(ap,form);
-    int i =0;
-    int cnt = 0;
-    while(form[i])
-    {
-        if(form[i] == '%')
-        {   
-            ++i;
-            cnt += check(form[i], ap);
-            ++i;          
-        }
-        else 
-        {
-            ft_char(form[i]);
-            ++i;
-        }
-    }
-    
-    va_end(ap);
+	if (!s || fd < 0)
+		return ;
+	write(fd, s, ft_strlen(s));
 }
-

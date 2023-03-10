@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:56:17 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/08 16:59:23 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:39:32 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,15 @@ int ft_printf(char * form, ...)
         if(form[i] == '%')
         {   
             ++i;
-            cnt += check(form[i], ap);
+            cnt += ft_check(form[i], ap);
+            if (cnt == -1)
+                return -1;
         }        
         else 
+        {
             ft_char(form[i]);
+            cnt ++;
+        }
        ++i;
     }
     va_end(ap);

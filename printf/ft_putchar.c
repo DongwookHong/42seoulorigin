@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:53:48 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/07 16:53:50 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:16:02 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putchar(int ch)
+int	ft_puchar(int ch)
 {	
-	if(ch == NULL)
-		return ft_strdup("");
-	write(1,&ch,1);
-	return strlen(ch);
+	
+	if(ch == 0)
+		ft_strdup("");
+	ft_putchar_fd(ch,1);
+	
+	return 1;
 }

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 15:26:44 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 19:24:18 by donghong         ###   ########.fr       */
+/*   Created: 2022/11/23 20:36:41 by donghong          #+#    #+#             */
+/*   Updated: 2022/12/15 10:25:52 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_putunsigned(unsigned int num)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    char * unnum;
-    unnum = ft_itoa(num);
-    ft_putstr_fd(unnum,1);
-    return ft_strlen(unnum);
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst -> content);
+		lst = lst ->next;
+	}
 }

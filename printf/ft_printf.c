@@ -6,12 +6,11 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:56:17 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 16:39:32 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:54:03 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-
+#include "ft_printf.h"
 
 int ft_printf(char * form, ...)
 {
@@ -31,7 +30,7 @@ int ft_printf(char * form, ...)
         }        
         else 
         {
-            ft_char(form[i]);
+            ft_putchar(form[i]);
             cnt ++;
         }
        ++i;

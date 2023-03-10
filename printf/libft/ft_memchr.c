@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 15:26:44 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 19:24:18 by donghong         ###   ########.fr       */
+/*   Created: 2022/11/14 21:11:13 by donghong          #+#    #+#             */
+/*   Updated: 2022/12/15 10:26:49 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_putunsigned(unsigned int num)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    char * unnum;
-    unnum = ft_itoa(num);
-    ft_putstr_fd(unnum,1);
-    return ft_strlen(unnum);
+	size_t			i;
+	unsigned char	*str;
+
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+	{
+		if (str[i] == (unsigned char)c)
+			return (((void *)str + i));
+		i++;
+	}
+	return (0);
 }

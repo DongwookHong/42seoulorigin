@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 16:50:41 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 19:24:24 by donghong         ###   ########.fr       */
+/*   Created: 2022/11/23 20:13:33 by donghong          #+#    #+#             */
+/*   Updated: 2022/12/15 10:25:08 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char * str)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int cnt;
-	if(str == NULL)
+	t_list	*temp;
+
+	temp = *lst;
+	if (!lst)
+		return ;
+	else if (!(*lst))
+		*lst = new;
+	else
 	{
-		ft_putstr_fd("(NULL)",1);
-		cnt = ft_strlen("(NULL)");
-		return  cnt;	
+		while ((*lst)-> next)
+			(*lst) = (*lst)-> next;
+		(*lst)-> next = new;
+		(*lst) = temp;
 	}
-	ft_putstr_fd(str,1);
-	return ft_strlen(str);
 }

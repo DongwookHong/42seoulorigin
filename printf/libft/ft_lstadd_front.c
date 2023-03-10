@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 15:26:44 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 19:24:18 by donghong         ###   ########.fr       */
+/*   Created: 2022/11/29 14:35:59 by donghong          #+#    #+#             */
+/*   Updated: 2022/12/15 10:25:23 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_putunsigned(unsigned int num)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    char * unnum;
-    unnum = ft_itoa(num);
-    ft_putstr_fd(unnum,1);
-    return ft_strlen(unnum);
+	if (!lst || !new)
+		return ;
+	new ->next = *lst;
+	*lst = new;
 }

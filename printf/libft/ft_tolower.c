@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 15:26:44 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 19:24:18 by donghong         ###   ########.fr       */
+/*   Created: 2022/11/13 15:22:07 by donghong          #+#    #+#             */
+/*   Updated: 2022/11/27 17:06:49 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_putunsigned(unsigned int num)
+int	ft_tolower(int c)
 {
-    char * unnum;
-    unnum = ft_itoa(num);
-    ft_putstr_fd(unnum,1);
-    return ft_strlen(unnum);
+	if ('A' <= c && c <= 'Z')
+		c = c + 'a' - 'A';
+	return (c);
 }

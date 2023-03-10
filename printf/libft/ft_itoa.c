@@ -6,7 +6,7 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:26:31 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 17:02:26 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/10 21:02:04 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_len(long n, int base)
 {
 	int	cnt;
-	
+
 	cnt = 0;
 	if (n < 0)
 	{

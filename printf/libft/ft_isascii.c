@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 15:26:44 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 19:24:18 by donghong         ###   ########.fr       */
+/*   Created: 2022/11/10 12:35:14 by donghong          #+#    #+#             */
+/*   Updated: 2022/12/15 10:24:54 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_putunsigned(unsigned int num)
+int	ft_isascii(int c)
 {
-    char * unnum;
-    unnum = ft_itoa(num);
-    ft_putstr_fd(unnum,1);
-    return ft_strlen(unnum);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

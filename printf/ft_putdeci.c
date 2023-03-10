@@ -6,11 +6,11 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:22:28 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 17:22:56 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:24:30 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int ft_putdeci(int num)
 {

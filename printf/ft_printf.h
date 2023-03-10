@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 20:26:20 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 17:27:43 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:53:52 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 #include <stdlib.h>
 #include "./libft/libft.h"
 
+int ft_printf(char * form, ...);
 int ft_check(char ch, va_list ap);
-int	ft_puchar(int ch);
+int	ft_putchar(int ch);
 int	ft_putstr(char * str);
 int ft_putdeci(int num);
 int ft_putunsigned(unsigned int num);

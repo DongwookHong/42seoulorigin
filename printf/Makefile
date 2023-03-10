@@ -5,7 +5,12 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-SRCS  = ft_putchar.c \
+LIBFT_DIR = ./libft/
+
+SRCS  = ft_printf.c \
+	ft_check.c \
+	ft_changehex.c \
+	ft_putchar.c \
 	ft_putstr.c \
 	ft_putdeci.c \
 	ft_putunsigned.c \
@@ -18,13 +23,12 @@ OBJS = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	make all -C $(LIBFT_DIR)
+	cp libft/libft.a $(NAME)
 	$(AR) $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $^ -I .
-
-bonus:
-	make  all
 
 clean:
 	$(RM) $(OBJS) 

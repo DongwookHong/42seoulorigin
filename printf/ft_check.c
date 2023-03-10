@@ -6,12 +6,12 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:40:12 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/10 16:39:41 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:57:59 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int ft_check(char ch, va_list ap)
 {
@@ -28,7 +28,7 @@ int ft_check(char ch, va_list ap)
     else if(ch  == 'X')//
         return ft_hexupper(va_arg(ap,unsigned int));
     else if(ch  == 'p')
-        return ft_pointer(va_arg(ap,void *));
+        return ft_pointer(va_arg(ap,size_t ));
     else if(ch  == '%')
         return ft_putchar('%');
     else

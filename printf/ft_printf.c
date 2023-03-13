@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:56:17 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/12 20:25:39 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/13 09:40:10 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			cnt += ft_check(format[i + 1], &ap);
+			cnt += ft_check(format[i + 1], ap);
 			if (cnt == -1)
 				return (-1);
 			i++;

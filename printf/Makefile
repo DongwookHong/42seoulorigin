@@ -33,10 +33,14 @@ $(NAME): $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
-
-fclean: clean
+	make -C libft clean
+fclean: 
+	make clean
 	$(RM) $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
-re: fclean all
+re: 
+	make fclean 
+	make all
 	
 .PHONY: all clean fclean re

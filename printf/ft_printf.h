@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 20:26:20 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/13 09:38:06 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:17:28 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int		ft_hexupper(unsigned int hexdeci);
 int		ft_hexlow(unsigned int hexdeci);
 char	*ft_hexlow_itoa(unsigned int n);
 char	*ft_hexupper_itoa(unsigned int n);
-int		ft_pointer(size_t point);
+int		ft_pointer(unsigned long long point);
 
 #endif

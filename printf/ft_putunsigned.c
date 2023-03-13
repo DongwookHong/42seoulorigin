@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putunsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:26:44 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/12 20:04:14 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:12:21 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	ft_putunsigned(unsigned int num)
 	int		len;
 
 	unnum = ft_unitoa(num);
+	if (!unnum)
+		return (0);
 	len = ft_strlen(unnum);
 	ft_putstr_fd(unnum, 1);
 	free(unnum);

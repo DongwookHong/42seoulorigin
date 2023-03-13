@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 14:02:04 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/12 21:13:22 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/13 09:08:49 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,13 @@ char	*divide(t_list **head, int i)
 		return (NULL);
 	else
 	{
+		i = ft_strchr((*head)->content, '\n');
 		if (i == -1)
 		{
-			i = ft_strchr((*head)->content, '\n');
-			if (i == -1)
-			{
-				file_content = ft_strdup((*head)->content);
-				free((*head)->content);
-				(*head)->content = NULL;
-				return (file_content);
-			}
+			file_content = ft_strdup((*head)->content);
+			free((*head)->content);
+			(*head)->content = NULL;
+			return (file_content);
 		}
 		file_content = ft_substr((*head)->content, 0, i + 1);
 		(*head)->content = ft_substr((*head)->content, i + 1, j - i - 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 20:26:20 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/13 21:17:28 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:42:38 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
 
 int		ft_printf(const char *format, ...);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlen(const char *s);
 int		ft_check(char ch, va_list ap);
 int		ft_putchar(int ch);
 int		ft_putstr(char *str);

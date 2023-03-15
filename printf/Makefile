@@ -6,7 +6,6 @@ AR = ar rcs
 RM = rm -f
 
 SRCS  = ft_printf.c \
-	ft_check.c \
 	ft_utils.c \
 	ft_changehex.c \
 	ft_putchar.c \

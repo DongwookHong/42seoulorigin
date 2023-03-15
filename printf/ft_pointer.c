@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pointer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 21:12:39 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/13 21:18:24 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/15 20:15:50 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_len_hexp(unsigned long long n, int base)
+int	ft_len_hexp(size_t n, int base)
 {
 	int	cnt;
 
@@ -27,7 +27,7 @@ int	ft_len_hexp(unsigned long long n, int base)
 	return (cnt);
 }
 
-static char	*ft_pointer_itoa(unsigned long long n)
+static char	*ft_pointer_itoa(size_t n)
 {
 	char	*str;
 	int		len;
@@ -50,7 +50,7 @@ static char	*ft_pointer_itoa(unsigned long long n)
 	return (str);
 }
 
-int	ft_pointer(unsigned long long point)
+int	ft_pointer(size_t point)
 {
 	char	*point_ad;
 	int		len;

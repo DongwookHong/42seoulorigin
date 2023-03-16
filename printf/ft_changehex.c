@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_changehex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:44:45 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/15 20:14:52 by donghong         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:48:04 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 14:02:04 by donghong          #+#    #+#             */
-/*   Updated: 2023/03/13 09:19:25 by donghong         ###   ########.fr       */
+/*   Updated: 2023/04/03 21:05:01 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

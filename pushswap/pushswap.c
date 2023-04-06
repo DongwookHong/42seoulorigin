@@ -1,19 +1,19 @@
 #include <unistd.h>
-
+#include <string.h>
 #include "pushswap.h"
 
-
-void init_que(t_queue *q, int size)
+void init_que(t_queue *q)
 {
     q-> front = 0;
     q-> rear = 0;
-    q -> size = size;
-    q-> data = (int *)malloc(sizeof(int )* size); 
+    q -> size = 500;
+    q-> data = (int *)malloc(sizeof(int )* q->size);
+    memset(q->data, 0, sizeof(int) * q->size);
 }
 
 int is_empty(t_queue *q)
 {
-    if(q -> front == q -> rear) return 1;
+    if(q -> front == q -> rear+1) return 1;
     else 
         return 0;
 }
@@ -30,9 +30,10 @@ void enque(t_queue *q, int item){
         printf("que is full");
         return;
     }
-    else {
+    else{
         q->rear = (q->rear +1) %(q->size);
         q ->data[q->rear] =item;
+        
     }
     return ;
 }
@@ -48,35 +49,42 @@ int deque(t_queue *q)
     return item;
 }
 
+void	check_parsing(t_queue *a, char **argv)
+{
+	int			i=1;
+
+	int			idx =0;
+	int         put;
+
+	
+}
 
 
 int main(int argc, char **argv){
 
     t_queue *a;
-    a  =(t_queue *)malloc(sizeof(t_queue));
-    if(!a)
-        return 0;
-    init_que(a,10);
-    enque(a,1);
-    enque(a,2);
-    enque(a,3);
-    enque(a,4);
-    enque(a,5);
-    enque(a,7);
-    enque(a,8);
-    enque(a,9);
-    for (int i =a-> front; i <= a->rear; i++)
+    
+    a  =(t_queue *)malloc(sizeof(t_queue));  
+    init_que(a);
+    int i =1;
+    int put;
+    int idx =0;
+   while (argv[i])
+	{
+		int j = 0;
+		while (argv[i][j])
+		{
+			put = atoi(&argv[i][j]);
+			a->data[idx++] = (int)put;
+            enque(a,a->data[idx]);
+            j++;
+		}
+		i++;
+	}
+
+    for (int i =a->front; i <= a->rear; i++)
     {
         printf("%d\n",a->data[i]);
     }
-
-    printf("------------------\n");
-    deque(a);
-    deque(a);
-    deque(a);
-
-     for (int i =a->front; i <= a->rear; i++)
-    {
-        printf("%d\n",a->data[i]);
-    }
+    
 }

@@ -1,90 +1,78 @@
-#include <unistd.h>
-#include <string.h>
 #include "pushswap.h"
+#include <stdio.h>
 
-void init_que(t_queue *q)
+void	set_order(t_list **a, int order, int min)
 {
-    q-> front = 0;
-    q-> rear = 0;
-    q -> size = 500;
-    q-> data = (int *)malloc(sizeof(int )* q->size);
-    memset(q->data, 0, sizeof(int) * q->size);
-}
-
-int is_empty(t_queue *q)
-{
-    if(q -> front == q -> rear+1) return 1;
-    else 
-        return 0;
-}
-int is_full(t_queue *q) {
-
-    if (((q->rear + 1) % (q->size)) == q->front) return 1;
-
-    else return 0;
-
-}
-
-void enque(t_queue *q, int item){
-    if(is_full(q)){
-        printf("que is full");
-        return;
-    }
-    else{
-        q->rear = (q->rear +1) %(q->size);
-        q ->data[q->rear] =item;
-        
-    }
-    return ;
-}
-
-int deque(t_queue *q)
-{
-    if(is_empty(q)){
-        printf("empty\n");
-        return -1;
-    }
-    q -> front =(q ->front+1) % (q -> size);
-    int item =  q-> data[q->front];
-    return item;
-}
-
-void	check_parsing(t_queue *a, char **argv)
-{
-	int			i=1;
-
-	int			idx =0;
-	int         put;
-
-	
-}
-
-
-int main(int argc, char **argv){
-
-    t_queue *a;
-    
-    a  =(t_queue *)malloc(sizeof(t_queue));  
-    init_que(a);
-    int i =1;
-    int put;
-    int idx =0;
-   while (argv[i])
+	t_list		*tmp;
+   
+	tmp = *a;
+	while (tmp)
 	{
-		int j = 0;
-		while (argv[i][j])
+		if (tmp->num == min)
 		{
-			put = atoi(&argv[i][j]);
-			a->data[idx++] = (int)put;
-            enque(a,a->data[idx]);
-            j++;
+			tmp->order = order;
+			break ;
 		}
-		i++;
+		tmp = tmp->next;
 	}
+}
 
-    for (int i =a->front; i <= a->rear; i++)
+void	find_order(t_list **a, int len)
+{
+	int		order;
+    t_list  *temp;
+   
+    int min;
+  
+	order = 1;
+	while (order <= len)
+	{
+        temp = *a;
+        min = 9999;
+        while(temp)
+        {
+            if(temp-> num < min && temp->order ==0)
+                min = temp ->num;
+            temp = temp -> next;
+        }
+		set_order(a, order,min);
+		order++;
+	}
+}
+
+
+
+
+int main(int ac, char ** av)
+{
+    int i =1;
+    t_list *a;
+    t_list *b;
+    int len;
+    a = NULL;
+    b = NULL;
+
+    while(av[i])
     {
-        printf("%d\n",a->data[i]);
+        ft_lstadd_back(&a,ft_lstnew(ft_atoi(av[i])));
+        i++;
     }
-    
+    len = ft_lstsize(a);
+    find_order(&a,len);
+    // sa(&a);
+    // pb(&a,&b);
+    // ra(&a);
+
+    rra(&a);
+    while(a)
+    {
+       printf("a의 값%d  a order check%d\n",a->num, a->order);
+        a= a->next;
+    }
+    printf("--------------\n");
+     while(b)
+    {
+       printf("b의 값%d  a order check%d\n",b->num, b->order);
+        b= b->next;
+    }
 }

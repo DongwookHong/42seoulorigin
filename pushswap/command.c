@@ -5,7 +5,7 @@ void sa(t_list **a)
 {
   t_list *tmp;
 
-  if (a && *a && (*a)->next)
+  if (*a && (*a)->next)
     {
         tmp = (*a)->next;
         (*a)->next = tmp->next;
@@ -18,7 +18,7 @@ void sb(t_list **b)
 {
   t_list *tmp;
 
-  if (b && *b && (*b)->next)
+  if (*b && (*b)->next)
     {
         tmp = (*b)->next;
         (*b)->next = tmp->next;
@@ -89,6 +89,7 @@ void rr(t_list **a,t_list **b)
     rb(b);
 }
 
+
 void	rra(t_list **a)
 {
 	t_list	*head;
@@ -105,4 +106,29 @@ void	rra(t_list **a)
 	move->next = NULL;
 	head->next = *a;
 	*a = head;
+}
+
+
+void	rrb(t_list **b)
+{
+	t_list	*head;
+	t_list	*move;
+
+	head = *b;
+	if (!head || !head->next)
+		return ;
+	while (head->next)
+	{
+		move = head;
+		head = head->next;
+	}
+	move->next = NULL;
+	head->next = *b;
+	*b = head;
+}
+
+void	rrr(t_list **a ,t_list **b)
+{
+    rra(a);
+    rrb(b);
 }

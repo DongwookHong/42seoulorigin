@@ -1,6 +1,18 @@
 #include "pushswap.h"
 #include <stdio.h>
 
+int standard_num(int size)
+{
+    int stand =0;
+    if (size <=5)
+        return -1;
+    if (size <=100)
+        stand =15;
+    else
+        stand = 30;
+    return stand;    
+}
+
 void	set_order(t_list **a, int order, int min)
 {
 	t_list		*tmp;
@@ -62,8 +74,15 @@ int main(int ac, char ** av)
     // sa(&a);
     // pb(&a,&b);
     // ra(&a);
-
-    rra(&a);
+    // pb(&a,&b);
+    // pb(&a,&b);
+    // pb(&a,&b);
+    // rrr(&a,&b);
+    // pa(&a,&b);
+    // ra(&a);
+    int k = standard_num(len);
+    sortatob(&a,&b,k);
+    // sortbtoa(&a,&b);
     while(a)
     {
        printf("a의 값%d  a order check%d\n",a->num, a->order);

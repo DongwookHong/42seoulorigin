@@ -82,16 +82,16 @@ int main(int ac, char ** av)
     // ra(&a);
     int k = standard_num(len);
     sortatob(&a,&b,k);
-    // sortbtoa(&a,&b);
+    sortbtoa(&a,&b);
     while(a)
     {
        printf("a의 값%d  a order check%d\n",a->num, a->order);
         a= a->next;
     }
     printf("--------------\n");
-     while(b)
-    {
-       printf("b의 값%d  a order check%d\n",b->num, b->order);
-        b= b->next;
-    }
+    //  while(b)
+    // {
+    //    printf("b의 값%d  b order check%d\n",b->num, b->order);
+    //     b= b->next;
+    // }
 }

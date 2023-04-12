@@ -1,22 +1,53 @@
 #include "pushswap.h"
+
 void change_b(t_list **b, int line)
 {
     if(line >=(*b)->num)
         rb(b);
 }
 
-
-void sort_b(t_list **b)
+int find_lenorder(t_list **b,int size, int len)
 {
-    t_list *top;
-    t_list *bottom;
+    t_list *top = *b;
+   
+    int topnum=1;
+    while(1)
+    {
+        if(top -> order == size)
+            break;
+        topnum++;
+        top=top ->next;
+    }
+    if(topnum<=len)
+        return 1;
+    return 2;
+}
 
-    top = *b;
-    bottom = ft_lstlast(*b);
-  
-    if(top ->order < bottom ->order)
-        rrb(b);        
 
+void sort_b(t_list **b,int size)
+{
+    int len = size/2;
+    if((*b) ->order == size)
+        return;
+    int k = find_lenorder(b,size,len);
+    if(k ==1)
+    {
+        while(1)
+        {
+            rb(b);
+            if((*b) ->order == size)
+                return;
+        }
+    }
+    else if(k ==2)
+    {
+        while(1)
+        {
+            rrb(b);
+            if((*b) ->order == size)
+                return;
+        }
+    }
 }
 
 
@@ -44,17 +75,13 @@ void sortatob(t_list **a,t_list **b,int num)
 
 void sortbtoa(t_list **a , t_list **b)
 {
-    t_list *top;
-    t_list *bottom;
-    int i =0; 
-
     int size = ft_lstsize(*b);
-    while(1)
+    int find_order = size;
+    while(find_order != 0)
     {
-        sort_b(b);
+        sort_b(b ,find_order);
         pa(a,b);
-        if(*b == NULL)
-            break;
+        find_order--;
     }
 
 }

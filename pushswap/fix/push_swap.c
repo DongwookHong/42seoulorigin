@@ -1,19 +1,5 @@
 #include "push_swap.h"
 
-
-int standard_num(int size)
-{
-    int stand =0;
-    if (size <=5)
-        return -1;
-    if (size <=100)
-        stand =15;
-    else
-        stand = 30;
-    return stand;    
-}
-
-
 void	set_order(t_list **a, int order, int min)
 {
 	t_list		*tmp;
@@ -85,7 +71,7 @@ int main(int ac,char *av[])
 
     while(sp[i])
     {
-       
+        // printf("%s\n",sp[i]);
         ft_lstadd_back(&a,ft_lstnew(ft_atoi(sp[i])));
         i++;    
     }
@@ -94,10 +80,10 @@ int main(int ac,char *av[])
     double_check(a);
     find_order(&a,info.size);
     if(info.size <=0)
-    {
         error_msg();
-        return 0;
-    }
+    // if(info.chunk == -1)
+    //     minsort(&a,info);
+    
     //    while(a)
     // {
     //    printf("a의 값%d  a order check%d\n",a->num, a->order);

@@ -21,7 +21,7 @@ int check_digit(const char *str)
 
 	while(str[i])
 	{
-		if(!(str[i]>='0'&& str[i]<= '9')|| (str[i] ==' '))
+		if(!(str[i]>='0'&& str[i]<= '9'))
 			return -1;
 		i++;
 	}
@@ -50,7 +50,7 @@ int	ft_atoi(const char *str)
 		result = result*10 + (str[i]-'0');
 		i++;
 	}
-	if(check_num(sign*result)|| digit == -1)
-		error_msg();
+	// if(check_num(sign*result)|| digit == -1)
+	// 	error_msg();
 	return (sign * result);
 }

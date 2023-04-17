@@ -57,7 +57,7 @@ void sortatob(t_list **a,t_list **b,t_info info)
     int i =0;
     int num= info.chunk;
     int size = info.size;
-    printf("num의 값은 %d, size의값은 ?%d\n",num,size);
+    // printf("chunk의 값은 %d, size의값은 ?%d\n",num,size);
     
     while(i<size)
     {   

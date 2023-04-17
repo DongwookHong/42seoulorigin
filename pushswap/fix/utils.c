@@ -23,7 +23,7 @@ size_t	ft_strlen2(const char *s)
 		i++;
 		k++;
 	}
-	return (i+(k-1));
+	return (i+(k));
 }
 
 
@@ -67,12 +67,15 @@ char ** fix(int k,char *st[])
     x =0;
     j = 1;
     join = "";
+	
     while(k > 1)
     {
        sp=ft_split(st[j] , ' ');
        while(sp[x])
        {
+			
             join = ft_strjoin(join,sp[x]);
+			// printf("%s\n",join);
             x++;
        }
        x=0;
@@ -83,4 +86,18 @@ char ** fix(int k,char *st[])
    
     sp = ft_split(join,' ');
     return sp;
+}
+
+
+
+int standard_num(int size)
+{
+    int stand =0;
+    if (size <=5)
+        return -1;
+    else if (size <=100)
+        stand =15;
+    else
+        stand = 30;
+    return stand;    
 }

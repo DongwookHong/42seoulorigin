@@ -73,23 +73,15 @@ int main(int ac, char ** av)
     }
     len = ft_lstsize(a);
     find_order(&a,len);
-    // sa(&a);
-    // pb(&a,&b);
-    // ra(&a);
-    // pb(&a,&b);
-    // pb(&a,&b);
-    // pb(&a,&b);
-    // rrr(&a,&b);
-    // pa(&a,&b);
-    // ra(&a);
     int k = standard_num(len);
+ 
     sortatob(&a,&b,k);
     sortbtoa(&a,&b);
-    // while(a)
-    // {
-    //    printf("a의 값%d  a order check%d\n",a->num, a->order);
-    //     a= a->next;
-    // }
+    while(a)
+    {
+       printf("a의 값%d  a order check%d\n",a->num, a->order);
+        a= a->next;
+    }
     // printf("--------------\n");
     //  while(b)
     // {

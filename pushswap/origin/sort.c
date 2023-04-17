@@ -55,9 +55,9 @@ void sort_b(t_list **b,int size)
 void sortatob(t_list **a,t_list **b,int num)
 {
     int i =0;
-
+    
     int size =ft_lstsize(*a);
-   
+   printf(" %d %d\n",num,size);
     while(i<size)
     {   
         if((*a)->order <= num+i)

@@ -19,6 +19,8 @@ typedef struct s_info{
 
 void error_msg();
 int standard_num(int size);
+int ordercheck(t_list *a);
+
 t_list	*ft_lstnew(int num);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int	ft_lstsize(t_list *lst);
@@ -40,7 +42,7 @@ void rra(t_list **a);
 void rrb(t_list **a);
 void rrr(t_list **a ,t_list **b);
 
-// void minsort(t_list **a,t_info info);
+void minsort(t_list **a,t_info info);
 void sortatob(t_list **a,t_list **b,t_info info);
 void sortbtoa(t_list **a , t_list **b,t_info info);
 

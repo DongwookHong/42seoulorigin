@@ -22,7 +22,22 @@ int find_lenorder(t_list **b,int size, int len)
         return 1;
     return 2;
 }
-
+// int find_lenorder2(t_list **b,int size, int len)
+// {
+//     t_list *top = *b;
+   
+//     int topnext=1;
+//     while(1)
+//     {
+//         if(top -> order-1 == size-1)
+//             break;
+//         topnext++;
+//         top=top ->next;
+//     }
+//     if(topnext <= len)
+//         return 1;
+//     return 2;
+// }
 
 void sort_b(t_list **b,int size)
 {
@@ -30,6 +45,7 @@ void sort_b(t_list **b,int size)
     if((*b) ->order == size)
         return;
     int k = find_lenorder(b,size,len);
+    // int y = find_lenorder2(b,size,len);
     if(k ==1)
     {
         while(1)

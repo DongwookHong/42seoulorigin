@@ -21,11 +21,11 @@ int check_digit(const char *str)
 
 	while(str[i])
 	{
-		if(!(str[i]>='0'&& str[i]<= '9'))
-			return -1;
+		if(!((str[i]>='0'&& str[i]<= '9')|| str[i]== ' '))
+			return 1;
 		i++;
 	}
-	return 1;
+	return -1;
 }
 
 int	ft_atoi(const char *str)
@@ -33,7 +33,7 @@ int	ft_atoi(const char *str)
 	int	i;
 	int	result;
 	int	sign;
-	int digit;
+	// int digit;
 	
 	i = 0;
 	sign = 1;
@@ -44,13 +44,13 @@ int	ft_atoi(const char *str)
 			sign *= -1; 
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	digit = check_digit(str);
+	// digit = check_digit(str);
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
 		result = result*10 + (str[i]-'0');
 		i++;
 	}
-	// if(check_num(sign*result)|| digit == -1)
-	// 	error_msg();
+	if(check_num(sign*result)) //|| digit)
+		error_msg();
 	return (sign * result);
 }

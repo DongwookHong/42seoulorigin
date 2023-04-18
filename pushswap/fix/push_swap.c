@@ -53,10 +53,24 @@ void double_check(t_list *a)
     }
 }
 
+int ordercheck(t_list *a)
+{
+    int flag = 1;
+    while (a && a->next)
+    {
+        if (a->order >= a->next->order)
+        {
+            flag = 0;
+            break;
+        }
+        a = a->next;
+    }
+    return flag;
+}
+
 int main(int ac,char *av[])
 {
     int  i;
-    int  k;
     char **sp;
     t_info info;
 
@@ -79,19 +93,24 @@ int main(int ac,char *av[])
     info.chunk= standard_num(info.size);
     double_check(a);
     find_order(&a,info.size);
-    if(info.size <=0)
-        error_msg();
-    // if(info.chunk == -1)
-    //     minsort(&a,info);
-    
+    if(ordercheck(a) == 1 || info.size <= 1)
+        return 0;
+    if(info.chunk == -1)
+    {
+        minsort(&a,info);
+        return 0;
+    }
     //    while(a)
     // {
     //    printf("a의 값%d  a order check%d\n",a->num, a->order);
     //     a= a->next;
     // }
     // printf("-----------------\n");
+    // else
+    // {
     sortatob(&a,&b,info);
     sortbtoa(&a,&b,info);
+    // }
     // while(b)
     // {
     //    printf("a의 값%d  a order check%d\n",b->num, b->order);

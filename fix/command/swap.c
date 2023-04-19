@@ -3,32 +3,32 @@
 
 void sa(t_list **a)
 {
-    t_list *tmp;
+  t_list *tmp;
 
-    tmp = (*a);
-    if(*a && (*a)->next)
+  if (*a && (*a)->next)
     {
-        *a = (*a)->next;
+        tmp = (*a)->next;
         (*a)->next = tmp->next;
         tmp->next = *a;
-        (*a) =tmp ;
-    }
+        *a = tmp;
+    }  
     write(1,"sa\n",3);
 }
 
 void sb(t_list **b)
 {
-    t_list *tmp;
+  t_list *tmp;
 
-    if(*b &&  (*b)->next)
+  if (*b && (*b)->next)
     {
-        tmp = (*b) ->next;
-        (*b) -> next = tmp ->next;
-        tmp ->next = (*b);
-        (*b) = tmp;
-    }
-    write(1,"sa\n",3);
+        tmp = (*b)->next;
+        (*b)->next = tmp->next;
+        tmp->next = *b;
+        *b = tmp;
+    }  
+    write(1,"sb\n",3);
 }
+
 
 void ss(t_list **a, t_list **b)
 {

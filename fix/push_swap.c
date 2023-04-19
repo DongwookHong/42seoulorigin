@@ -95,11 +95,23 @@ int main(int ac,char *av[])
     find_order(&a,info.size);
     if(ordercheck(a) == 1 || info.size <= 1)
         return 0;
-    if(info.chunk == -1)
+    // while(a)
+    // {
+    //     printf("a의 값%d  a order check%d\n",a->num, a->order);
+    //     a= a->next;
+    // }
+    if(info.chunk == 1)
     {
         minsort(&a,&b,info);
+        // while(a)
+        // {
+        // printf("a의 값%d  a order check%d\n",a->num, a->order);
+        //     a= a->next;
+        // }
         return 0;
     }
+    // sa(&a);
+    // rra(&a);
     //    while(a)
     // {
     //    printf("a의 값%d  a order check%d\n",a->num, a->order);

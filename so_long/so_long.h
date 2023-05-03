@@ -7,6 +7,8 @@
 #include <string.h>
 #include "./mlx/mlx.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include "./gnl/get_next_line.h"
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_RELEASE	3
@@ -18,13 +20,24 @@
 # define KEY_D		2
 
 typedef struct s_key{
-    int x;
-    int y;
+    int row;
+    int col;
 }   t_key;
 
 typedef struct s_map
 {
-    char * 
+    int height;
+    int width;
+    int p;
+    int o;
+    int w;
+    char *str; 
 }t_map;
+
+typedef struct s_game
+{
+    void *mlx;
+    void *win;
+}t_game;
 
 #endif

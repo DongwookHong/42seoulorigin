@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 17:08:09 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/04 16:11:21 by donghong         ###   ########.fr       */
+/*   Created: 2023/04/24 16:33:22 by donghong          #+#    #+#             */
+/*   Updated: 2023/04/24 16:43:54 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int ac, char *av[])
+int	standard_num(int size)
 {
-	char	**sp;
-	t_info	info;
-	t_list	*a;
-	t_list	*b;
+	int	stand;
 
-	a = NULL;
-	b = NULL;
-	sp = NULL;
-	ft_memset(&info, 0, sizeof(t_info));
-	if (ac == 1)
-		return (0);
-	sp = fix(ac, av);
-	if (!sp)
-		return (0);
-	changesp(&a, &b, info, sp);
-	ft_lstclear(&a);
-	ft_lstclear(&b);
-	return (0);
+	stand = 0;
+	if (size <= 5)
+		return (-1);
+	if (size <= 100)
+		stand = 15;
+	else
+		stand = 30;
+	return (stand);
+}
+
+void	sortmeth(t_list **a, t_list **b, t_info info)
+{
+	if (info.size <= 5)
+		minsort(a, b, info);
+	else
+	{
+		sortatob(a, b, info);
+		sortbtoa(a, b, info);
+	}
 }

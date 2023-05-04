@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 17:08:09 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/04 16:11:21 by donghong         ###   ########.fr       */
+/*   Created: 2023/03/02 14:02:32 by donghong          #+#    #+#             */
+/*   Updated: 2023/04/27 13:53:33 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-int	main(int ac, char *av[])
-{
-	char	**sp;
-	t_info	info;
-	t_list	*a;
-	t_list	*b;
+# include "../mandatory/push_swap.h"
 
-	a = NULL;
-	b = NULL;
-	sp = NULL;
-	ft_memset(&info, 0, sizeof(t_info));
-	if (ac == 1)
-		return (0);
-	sp = fix(ac, av);
-	if (!sp)
-		return (0);
-	changesp(&a, &b, info, sp);
-	ft_lstclear(&a);
-	ft_lstclear(&b);
-	return (0);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
+# include <unistd.h>
+# include <stdlib.h>
+
+char	*read_gnl(int fd, t_list **head, int j);
+char	*get_next_line(int fd);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+t_list	*ft_lstnew2(int fd);
+void	lstfree(t_list **backup);
+size_t	ft_strlen2(char *s);
+
+#endif

@@ -34,12 +34,12 @@ typedef struct s_map
     int height;
     int width;
     int p;
-    int o;
-    int w;
+    int c;
+    int e;
     char *str; 
     void *mlx;
     void *win;
-    char **map_down
+    char **map_down;
 }t_map;
 
 typedef struct s_img
@@ -53,6 +53,7 @@ typedef struct s_img
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int	ft_lstsize(t_list *lst);
-
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
+void	*ft_calloc(size_t count, size_t size);
 void	error();
 #endif

@@ -7,8 +7,7 @@ void	put_img(t_map *map,int y,int x,char *file)
 	void	*img;
 
 	img = mlx_xpm_file_to_image(map->mlx,file, &img_width, &img_height);
-	mlx_put_image_to_window(map->mlx, map->win, img,y*50,  x*50);
-	mlx_destroy_image(map->mlx, img);
+	mlx_put_image_to_window(map->mlx, map->win, img,y*20,  x*20);
 }
 
 t_list	*read_map(int fd)
@@ -61,7 +60,7 @@ void copy_map(t_map *map,t_list **head){
 	while(i< map->height)
 	{
 		// map->map_down[i] = ft_strdup(temp->content);
-		ft_strlcpy(map->map_down[i], temp->content, map->width + 1);
+		ft_strlcpy(map->map_down[i], temp->content, map->width + 2);
 		temp = temp->next;
 		i++;
 	}
@@ -70,58 +69,43 @@ void copy_map(t_map *map,t_list **head){
 
 int	show_map(t_map *map, int x, int y, int index)
 {
-	mlx_clear_window(map->mlx, map->win);
-	while (x++ < map->height)
+	while (x < map->height)
 	{
-		 y= 0;
-		while (y++ < map->width)
+		y= 0;
+		while (y < map->width)
 		{
 			if (map->map_down[x][y] == '0')
-				put_img(map, y, x, "./pic/floor.xpm");
+				put_img(map, y, x, "./pic/grass.xpm");
 			else if (map->map_down[x][y] == '1')
 				put_img(map, y, x, "./pic/rock1.xpm");
 			else if (map->map_down[x][y]  == 'E')
 			{
-				put_img(map, y, x, "./pic/floor.xpm");
+				put_img(map, y, x, "./pic/grass.xpm");
 				put_img(map, y, x, "./pic/rock1.xpm");
 			}
 			else if (map->map_down[x][y] == 'C')
 			{
-				put_img(map, y, x, "./pic/floor.xpm");
-				if (index % 2 == 0)
-					put_img(map, y, x, "./pic/rock1.xpm");
-				else
-					put_img(map, y, x, "./pic/rock1.xpm");
+				put_img(map, y, x, "./pic/grass.xpm");
+				put_img(map, y, x, "./pic/rock1.xpm");
 			}
 			else if (map->map_down[x][y] == 'P')
 			{
-				put_img(map, y, x, "./pic/floor.xpm");
+				put_img(map, y, x, "./pic/grass.xpm");
 				put_img(map, y, x, "./pic/monster.xpm");
 			}
+			y++;
 		}
+		x++;
 	}
 	return (0);
 }
 
 
-void	run_mlx(t_map *map)
-{
-	show_map(map, 0, 0, 0);
-	// put_img(map,"./pic/monster.xpm");
-	mlx_loop(map->mlx);
-}
-
 int main(int ac, char **av)
 {
     t_list *head;
 	t_map map;
-	// t_img img;
 	
-	void *img;
-	int img_width;
-	int img_height;
-
-
 	char **map_set;
     head = NULL; // line 초기화
 	initialize_map(&map);
@@ -131,14 +115,18 @@ int main(int ac, char **av)
 	map.height = ft_lstsize(head);
 	init_map(&map);
 
+	// printf("width 의값은 %d , height의값은 ?? %d\n",map.width,map.height);
 	copy_map(&map,&head);
 	int i =0;
+	// while(map.map_down[i])
+	// {
+	// 	printf("%s",map.map_down[i]);
+	// 	i++;
+	// }
 	map.mlx = mlx_init();
-	map.win = mlx_new_window(map.mlx, map.height * 50, map.width * 50, "map");
-	// img = mlx_xpm_file_to_image(map.mlx, "./pic/monster.xpm", &img_width, &img_height);
-	// mlx_put_image_to_window(map.mlx, map.win, img, 0, 0);
-	// mlx_loop(map.mlx);
-	run_mlx(&map);
+	map.win = mlx_new_window(map.mlx, map.width * 50,map.height * 50, "map");
+	show_map(&map, 0, 0, 0);
+	mlx_loop(map.mlx);
     return (0);
 }
 

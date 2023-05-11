@@ -1,24 +1,33 @@
 #include "so_long.h"
 
-void key_init(t_key *key)
+void	key_init(t_map *map)
 {
-    key ->row = 0;
-    key ->col = 0;
-}
-int				key_press(int keycode, t_key *move)
-{
-	static int a = 0;
+	t_key *move;
 
+	move = (t_key *)malloc(sizeof(t_key));
+	if (move == NULL)
+	{
+		exit(1);
+	}
+	move->row = map->p[0];
+	move->col = map->p[1];
+	map->move = move;
+}
+
+int				key_press(int keycode, t_map *map)
+{
+	int cnt;
 	if (keycode == KEY_W)
-		move->col++;
+		move_w(map);
 	else if (keycode == KEY_S)
-		move->col--;
+		move_s(map);
 	else if (keycode == KEY_D)
-		move->row++;
+		move_d(map);
 	else if (keycode == KEY_A)
-		move->row--;
+		move_a(map);
 	else if (keycode == KEY_ESC)
 		exit(0);
-	printf("x: %d, y: %d\n", move->row, move->col);
+	cnt++;
+	// writemove(cnt);
 	return (0);
 }

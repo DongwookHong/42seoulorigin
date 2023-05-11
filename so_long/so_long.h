@@ -33,9 +33,10 @@ typedef struct s_map
 {
     int height;
     int width;
-    int p;
-    int c;
-    int e;
+    int p[2];
+    int  c;
+    int e[2];
+    t_key *move;
     char *str; 
     void *mlx;
     void *win;
@@ -55,5 +56,17 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 int	ft_lstsize(t_list *lst);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 void	*ft_calloc(size_t count, size_t size);
+int		key_press(int keycode, t_map *map);
+void	key_init(t_map *map);
+int	show_map(t_map *map, int x, int y);
 void	error();
+
+
+void map_check(t_map map);
+
+void  find(t_map *map);
+void	move_w(t_map *map);
+void	move_s(t_map *map);
+void	move_d(t_map *map);
+void	move_a(t_map *map);
 #endif

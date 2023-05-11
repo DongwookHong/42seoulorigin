@@ -7,7 +7,8 @@ void	put_img(t_map *map,int y,int x,char *file)
 	void	*img;
 
 	img = mlx_xpm_file_to_image(map->mlx,file, &img_width, &img_height);
-	mlx_put_image_to_window(map->mlx, map->win, img,y*20,  x*20);
+	mlx_put_image_to_window(map->mlx, map->win, img,y*50,  x*50);
+	mlx_destroy_image(map->mlx, img);
 }
 
 t_list	*read_map(int fd)
@@ -33,8 +34,8 @@ t_list	*read_map(int fd)
 void	initialize_map(t_map *info)
 {
 	info->c = 0;
-	info->e = 0;
-	info->p = 0;
+	info->e[0] = '\0';
+	info->p[0] = '\0';
 	info->height = 0;
 	info->width = 0;
 }
@@ -67,32 +68,41 @@ void copy_map(t_map *map,t_list **head){
 	map->map_down[i] = NULL; 
 }
 
-int	show_map(t_map *map, int x, int y, int index)
+int	show_map(t_map *map, int x, int y)
 {
+	mlx_clear_window(map->mlx, map->win);
 	while (x < map->height)
 	{
 		y= 0;
 		while (y < map->width)
 		{
 			if (map->map_down[x][y] == '0')
-				put_img(map, y, x, "./pic/grass.xpm");
-			else if (map->map_down[x][y] == '1')
-				put_img(map, y, x, "./pic/rock1.xpm");
-			else if (map->map_down[x][y]  == 'E')
+				put_img(map, y, x, "./pic/base.xpm");
+			else if (map->map_down[x][y] == '1'){
+				put_img(map, y, x, "./pic/base.xpm");
+				put_img(map, y, x, "./pic/turret.xpm");
+			}
+			else if (map->map_down[x][y]  == 'E' && map ->c !=0)
 			{
-				put_img(map, y, x, "./pic/grass.xpm");
-				put_img(map, y, x, "./pic/rock1.xpm");
+				put_img(map, y, x, "./pic/base.xpm");
+				put_img(map, y, x, "./pic/exit1.xpm");
+			}
+			else if (map->map_down[x][y]  == 'E' && map ->c ==0)
+			{
+				put_img(map, y, x, "./pic/base.xpm");
+				put_img(map, y, x, "./pic/exit2.xpm");
 			}
 			else if (map->map_down[x][y] == 'C')
 			{
-				put_img(map, y, x, "./pic/grass.xpm");
-				put_img(map, y, x, "./pic/rock1.xpm");
+				put_img(map, y, x, "./pic/base.xpm");
+				put_img(map, y, x, "./pic/object.xpm");
 			}
 			else if (map->map_down[x][y] == 'P')
 			{
-				put_img(map, y, x, "./pic/grass.xpm");
+				put_img(map, y, x, "./pic/base.xpm");
 				put_img(map, y, x, "./pic/monster.xpm");
 			}
+	
 			y++;
 		}
 		x++;
@@ -100,7 +110,9 @@ int	show_map(t_map *map, int x, int y, int index)
 	return (0);
 }
 
+void move_charac(t_map map){
 
+}
 int main(int ac, char **av)
 {
     t_list *head;
@@ -123,9 +135,13 @@ int main(int ac, char **av)
 	// 	printf("%s",map.map_down[i]);
 	// 	i++;
 	// }
+	find(&map);
+	key_init(&map);
+	map_check(map);
 	map.mlx = mlx_init();
 	map.win = mlx_new_window(map.mlx, map.width * 50,map.height * 50, "map");
-	show_map(&map, 0, 0, 0);
+	show_map(&map, 0, 0);
+	mlx_hook(map.win, X_EVENT_KEY_RELEASE, 0, &key_press, &map);
 	mlx_loop(map.mlx);
     return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:29:32 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 11:29:33 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:13:19 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,19 @@ void	init_map(t_map *map)
 
 	i = 0;
 	map->map_down = (char **)calloc(map->height + 1, sizeof(char *));
-	if (!(map->map_down))
+	map->check = (char **)calloc(map->height + 1, sizeof(char *));
+	if (!(map->map_down) || !(map->check))
 		error();
 	while (i < map->height)
 	{
 		map->map_down[i] = (char *)calloc(map->width + 1, sizeof(char));
-		if (!(map->map_down[i]))
+		map->check[i] = (char *)calloc(map->width + 1, sizeof(char));
+		if (!(map->map_down[i]) || !(map->check[i]))
 			error();
 		i++;
 	}
 	map->map_down[i] = NULL;
+	map->check[i] = NULL;
 }
 
 void	initialize_map(t_map *map)
@@ -59,4 +62,7 @@ void	initialize_map(t_map *map)
 	map->mlx = NULL;
 	map->win = NULL;
 	map->map_down = NULL;
+	map->check = NULL;
+	map->check_x = {-1,1,0,0};
+	map->check_y = {0,0,-1,1};
 }

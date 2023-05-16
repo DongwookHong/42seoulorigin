@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   square.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:42 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 11:12:43 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:13:18 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,37 @@ void	check_factor(t_map map)
 	}
 }
 
+void	check_exit(t_map *map)
+{
+	int	i;
+	int	j;
+	int k; 
+	i = 0;
+
+	k =0;
+	map->check[i][j] == 1;
+	while (i < map.height)
+	{
+		j = 0;
+		while (j < map.width)
+		{
+			while(k< 4)
+			{
+				map
+				k++;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+
+
 void	map_check(t_map map)
 {
 	square_check(map);
 	surround(map);
 	check_factor(map);
+	// check_exit(map, );
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:51:14 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 11:51:14 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:03:35 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_RELEASE	3
-# define X_EVENT_KEY_EXIT		17
+// # define X_EVENT_KEY_EXIT		17
 # define KEY_ESC				53
 # define KEY_W					13
 # define KEY_A					0
 # define KEY_S					1
 # define KEY_D					2
+
+# define ON_DESTROY				17
 
 typedef struct s_list
 {
@@ -53,6 +55,9 @@ typedef struct s_map
 	void	*mlx;
 	void	*win;
 	char	**map_down;
+	int		*check_x;
+	int		*check_y;
+	char	**check;
 }				t_map;
 
 t_list		*read_map(int fd);

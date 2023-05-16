@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   square.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/16 11:12:42 by donghong          #+#    #+#             */
+/*   Updated: 2023/05/16 11:12:43 by donghong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	square_check(t_map map)
@@ -42,17 +54,18 @@ void	surround(t_map map)
 
 void	check_factor(t_map map)
 {
-	int	i = 0;
+	int	i;
 	int	j;
 
+	i = 0;
 	while (i < map.height)
 	{
 		j = 0;
 		while (j < map.width)
 		{
-			if (!((map.map_down[i][j] == '1') || (map.map_down[i][j] == '0') || \
-            (map.map_down[i][j] == 'C') || (map.map_down[i][j] == 'P') || \
-            (map.map_down[i][j] == 'E')))
+			if (!((map.map_down[i][j] == '1') || (map.map_down[i][j] == '0') ||
+				(map.map_down[i][j] == 'C') || (map.map_down[i][j] == 'P') ||
+				(map.map_down[i][j] == 'E')))
 				error();
 			j++;
 		}

@@ -1,5 +1,16 @@
-#include "so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   settingmap.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/16 11:15:20 by donghong          #+#    #+#             */
+/*   Updated: 2023/05/16 11:15:31 by donghong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "so_long.h"
 
 t_list	*read_map(int fd)
 {
@@ -7,7 +18,7 @@ t_list	*read_map(int fd)
 	t_list	*new;
 	char	*str;
 
-	head = 0;
+	head = NULL;
 	str = get_next_line(fd);
 	if (!str)
 		error();
@@ -22,22 +33,22 @@ t_list	*read_map(int fd)
 	return (head);
 }
 
-
-void copy_map(t_map *map,t_list **head)
+void	copy_map(t_map *map, t_list **head)
 {
-	int i =0;
-	t_list *temp;
-	char   *tmp;
+	int		i;
+	t_list	*temp;
+	char	*tmp;
 
+	i = 0;
 	temp = *head;
-	while(i< map->height)
+	while (i < map->height)
 	{
 		tmp = temp->content;
-		ft_strlcpy(map->map_down[i], temp->content, map->width+1);
+		ft_strlcpy(map->map_down[i], temp->content, map->width + 1);
 		free(tmp);
 		temp = temp->next;
 		i++;
 	}
 	ft_lstclear(head);
-	map->map_down[i] = NULL; 
+	map->map_down[i] = NULL;
 }

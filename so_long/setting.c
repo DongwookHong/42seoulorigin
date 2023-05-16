@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   setting.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/16 11:16:15 by donghong          #+#    #+#             */
+/*   Updated: 2023/05/16 11:16:16 by donghong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-void setting(int ac , char **av,t_map *map)
+void	setting(int ac, char **av, t_map *map)
 {
-	t_list *head;
+	t_list	*head;
+	int		fd;
 
 	head = NULL;
-	int fd;
-	fd = open(av[1],O_RDONLY);
-	if (fd <0)
+	fd = open(av[1], O_RDONLY);
+	if (fd < 0)
 	{
 		error();
 		return ;
@@ -18,13 +30,11 @@ void setting(int ac , char **av,t_map *map)
 		error();
 		return ;
 	}
-	map->width = ft_strlen((head)->content)-1;
-	// // printf("width-?%d\n",map->width);
+	map->width = ft_strlen(head->content) - 1;
 	map->height = ft_lstsize(head);
-	// // printf("height-?%d\n",map->height);
-    init_map(map);
-	copy_map(map,&head);
+	init_map(map);
+	copy_map(map, &head);
 	find(map);
-    key_init(map);
+	key_init(map);
 	map_check(*map);
 }

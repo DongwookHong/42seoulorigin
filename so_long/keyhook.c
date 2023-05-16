@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keyhook.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/16 11:20:07 by donghong          #+#    #+#             */
+/*   Updated: 2023/05/16 11:20:12 by donghong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	ft_len(long n)
@@ -37,20 +49,21 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-
-void writemove(t_map *map)
+void	writemove(t_map *map)
 {
-	char *str;
+	char	*str;
 
 	str = ft_itoa(map->cnt);
-	write(1,"movement: ",10);
-	write(1,str,ft_strlen(str));
-	write(1,"\n",1);
+	write(1, "movement: ", 10);
+	write(1, str, ft_strlen(str));
+	write(1, "\n", 1);
+	free(str);
 }
 
-int				key_press(int keycode, t_map *map)
+int	key_press(int keycode, t_map *map)
 {
-	int count;
+	int	count;
+
 	count = map->cnt;
 	if (keycode == KEY_W)
 		move_w(map);

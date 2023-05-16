@@ -1,7 +1,5 @@
 #include "so_long.h"
 
-
-
 int	find_p(t_map *map)
 {
 	int	i;
@@ -17,8 +15,7 @@ int	find_p(t_map *map)
             {
 			    map->p[0]=i;
                 map->p[1]=j;
-                flag =1;
-                break;
+                flag++;
             }
             j++;
         }
@@ -43,8 +40,7 @@ int	find_e(t_map *map)
             {
 			    map->e[0]=i;
                 map->e[1]=j;
-                flag= 1;
-                break;
+                flag++;
             }
             j++;
         }
@@ -88,7 +84,7 @@ void find(t_map *map)
     exit=find_e(map);
     character =find_p(map);
 
-    if ( obstacle < 1 || exit == 0 || character ==0 )
+    if ( obstacle < 1 || exit != 1 || character != 1 )
     {
         error();
         return ;

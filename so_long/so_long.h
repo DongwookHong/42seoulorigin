@@ -32,6 +32,7 @@ typedef struct s_key{
 typedef struct s_map
 {
     int height;
+    int cnt;
     int width;
     int p[2];
     int  c;
@@ -43,14 +44,16 @@ typedef struct s_map
     char **map_down;
 }t_map;
 
-typedef struct s_img
-{
-    void *img1;
-    void *img2;
-    void *img3;
-}t_img;
 
 
+t_list	*read_map(int fd);
+
+
+void setting(int ac , char **av,t_map *map);
+void copy_map(t_map *map,t_list **head);
+void init_map(t_map *map);
+void	initialize_map(t_map *info);
+void	key_init(t_map *map);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int	ft_lstsize(t_list *lst);
@@ -61,7 +64,7 @@ void	key_init(t_map *map);
 int	show_map(t_map *map, int x, int y);
 void	error();
 
-
+void	ft_lstclear(t_list **lst);
 void map_check(t_map map);
 
 void  find(t_map *map);

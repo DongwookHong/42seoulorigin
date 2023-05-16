@@ -1,22 +1,57 @@
 #include "so_long.h"
 
-void	key_init(t_map *map)
+int	ft_len(long n)
 {
-	t_key *move;
+	int	cnt;
 
-	move = (t_key *)malloc(sizeof(t_key));
-	if (move == NULL)
+	cnt = 0;
+	if (n == 0)
+		cnt++;
+	while (n > 0)
 	{
-		exit(1);
+		n /= 10;
+		cnt++;
 	}
-	move->row = map->p[0];
-	move->col = map->p[1];
-	map->move = move;
+	return (cnt);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	long	num;
+	int		len;
+
+	num = (long)n;
+	len = ft_len(n);
+	str = (char *)malloc(len + 1);
+	if (!str)
+		return (0);
+	str[len--] = '\0';
+	if (num == 0)
+		str[0] = '0';
+	while (num > 0)
+	{
+		str[len--] = (num % 10) + '0';
+		num /= 10;
+	}
+	return (str);
+}
+
+
+void writemove(t_map *map)
+{
+	char *str;
+
+	str = ft_itoa(map->cnt);
+	write(1,"movement: ",10);
+	write(1,str,ft_strlen(str));
+	write(1,"\n",1);
 }
 
 int				key_press(int keycode, t_map *map)
 {
-	int cnt;
+	int count;
+	count = map->cnt;
 	if (keycode == KEY_W)
 		move_w(map);
 	else if (keycode == KEY_S)
@@ -27,7 +62,7 @@ int				key_press(int keycode, t_map *map)
 		move_a(map);
 	else if (keycode == KEY_ESC)
 		exit(0);
-	cnt++;
-	// writemove(cnt);
+	if (count != map->cnt)
+		writemove(map);
 	return (0);
 }

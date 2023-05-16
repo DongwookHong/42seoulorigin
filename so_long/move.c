@@ -13,6 +13,7 @@ void	move_w(t_map *map)
         map->map_down[i][j] = '0';
         map->map_down[i-1][j] = 'P';
         map->p[0] =i-1;
+        map->cnt++;
 	}
     if(map->map_down[i-1][j] == 'E' && map->c ==0)
         exit(0);
@@ -33,6 +34,7 @@ void	move_s(t_map *map)
         map->map_down[i][j] = '0';
         map->map_down[i+1][j] = 'P';
         map->p[0] =i+1;
+        map->cnt++;
 	}
     if(map->map_down[i+1][j] == 'E' && map->c ==0)
         exit(0);
@@ -53,6 +55,7 @@ void	move_a(t_map *map)
         map->map_down[i][j] = '0';
         map->map_down[i][j-1] = 'P';
         map->p[1] =j-1;
+        map->cnt++;
 	}
     if(map->map_down[i][j-1] == 'E' && map->c ==0)
         exit(0);
@@ -73,6 +76,7 @@ void	move_d(t_map *map)
         map->map_down[i][j] = '0';
         map->map_down[i][j+1] = 'P';
         map->p[1] =j+1;
+        map->cnt++;
 	}
     if(map->map_down[i][j+1] == 'E' && map->c ==0)
         exit(0);

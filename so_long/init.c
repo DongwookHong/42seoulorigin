@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:29:32 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 16:13:19 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:03:58 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,18 @@ void	init_map(t_map *map)
 	map->check[i] = NULL;
 }
 
+void	dfs_base(t_map *map)
+{
+	map->check_x[0] = -1;
+	map->check_x[1] = 1;
+	map->check_x[2] = 0;
+	map->check_x[3] = 0;
+	map->check_y[0] = 0;
+	map->check_y[1] = 0;
+	map->check_y[2] = -1;
+	map->check_y[3] = 1;
+}
+
 void	initialize_map(t_map *map)
 {
 	map->cnt = 0;
@@ -63,6 +75,5 @@ void	initialize_map(t_map *map)
 	map->win = NULL;
 	map->map_down = NULL;
 	map->check = NULL;
-	map->check_x = {-1,1,0,0};
-	map->check_y = {0,0,-1,1};
+	dfs_base(map);
 }

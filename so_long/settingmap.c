@@ -6,7 +6,7 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:15:20 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 11:15:31 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:03:25 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,12 @@ void	copy_map(t_map *map, t_list **head)
 	{
 		tmp = temp->content;
 		ft_strlcpy(map->map_down[i], temp->content, map->width + 1);
+		ft_strlcpy(map->check[i], temp->content, map->width + 1);
 		free(tmp);
 		temp = temp->next;
 		i++;
 	}
 	ft_lstclear(head);
 	map->map_down[i] = NULL;
+	map->check[i] = NULL;
 }

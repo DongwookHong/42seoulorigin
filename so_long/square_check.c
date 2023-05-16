@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   square.c                                           :+:      :+:    :+:   */
+/*   square_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:42 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 17:13:18 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:03:04 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ void	check_factor(t_map map)
 {
 	int	i;
 	int	j;
+	int	k;
 
 	i = 0;
+	k = 0;
 	while (i < map.height)
 	{
 		j = 0;
@@ -67,43 +69,41 @@ void	check_factor(t_map map)
 				(map.map_down[i][j] == 'C') || (map.map_down[i][j] == 'P') ||
 				(map.map_down[i][j] == 'E')))
 				error();
+			if (map.check[i][j] == '1')
+				k++;
 			j++;
 		}
 		i++;
 	}
+	if (k != (map.height * map.width))
+		error();
 }
 
-void	check_exit(t_map *map)
+void	dfs_exit(t_map *map, int cha_x, int cha_y)
 {
 	int	i;
-	int	j;
-	int k; 
-	i = 0;
+	int	x;
+	int	y;
 
-	k =0;
-	map->check[i][j] == 1;
-	while (i < map.height)
+	i = 0;
+	map->check[cha_x][cha_y] = '1';
+	while (i < 4)
 	{
-		j = 0;
-		while (j < map.width)
-		{
-			while(k< 4)
-			{
-				map
-				k++;
-			}
-			j++;
-		}
+		x = cha_x + map->check_x[i];
+		y = cha_y + map->check_y[i];
+		if (x < 0 || y < 0 || x > map->height || y > map->width)
+			continue ;
+		if ((map->check[x][y] == '0') || (map->check[x][y] == 'P') || \
+		(map->check[x][y] == 'C') || (map->check[x][y] == 'E'))
+			dfs_exit(map, x, y);
 		i++;
 	}
 }
-
-
 
 void	map_check(t_map map)
 {
 	square_check(map);
 	surround(map);
+	dfs_exit(&map, map.p[0], map.p[1]);
 	check_factor(map);
-	// check_exit(map, );
 }

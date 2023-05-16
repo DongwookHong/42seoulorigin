@@ -6,7 +6,7 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 14:02:04 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/15 21:17:55 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:53:21 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,8 @@ char	*read_gnl(int fd, t_gnl_list **head, int j)
 char	*get_next_line(int fd)
 {
 	static t_gnl_list	*head;
-	char			*save_buff;
-	int				j;
+	char				*save_buff;
+	int					j;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
@@ -133,4 +133,3 @@ char	*get_next_line(int fd)
 	}
 	return (save_buff);
 }
-

@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setting.c                                          :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 11:16:15 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 11:16:16 by donghong         ###   ########.fr       */
+/*   Created: 2023/05/16 11:14:15 by donghong          #+#    #+#             */
+/*   Updated: 2023/05/16 22:38:16 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	setting(int ac, char **av, t_map *map)
+int	main(int ac, char **av)
 {
-	t_list	*head;
-	int		fd;
+	t_map	map;
 
-	head = NULL;
-	fd = open(av[1], O_RDONLY);
-	if (fd < 0)
-	{
-		error();
-		return ;
-	}
-	head = read_map(fd);
-	if (!head)
-	{
-		error();
-		return ;
-	}
-	map->width = ft_strlen(head->content) - 1;
-	map->height = ft_lstsize(head);
-	init_map(map);
-	copy_map(map, &head);
-	find(map);
-	key_init(map);
-	map_check(*map);
+	initialize_map(&map);
+	setting(ac, av, &map);
+	map.mlx = mlx_init();
+	map.win = mlx_new_window(map.mlx, map.width * 50, map.height * 50, "map");
+	show_map(&map);
+	mlx_hook(map.win, X_EVENT_KEY_PRESS, 0, &key_press, &map);
+	mlx_hook(map.win, X_EVENT_KEY_EXIT, 0, &exit_e, &map);
+	mlx_loop(map.mlx);
+	return (0);
 }

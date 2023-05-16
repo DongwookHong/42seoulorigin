@@ -6,7 +6,7 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:51:14 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 21:06:16 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:52:52 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "./mlx/mlx.h"
-# include "./gnl/get_next_line.h"
+# include "../mlx/mlx.h"
+# include "../gnl/get_next_line.h"
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_RELEASE	3
@@ -63,14 +63,14 @@ void		setting(int ac, char **av, t_map *map);
 void		init_map(t_map *map);
 void		initialize_map(t_map *info);
 void		copy_map(t_map *map, t_list **head);
-int			show_map(t_map *map, int x, int y);
+int			show_map(t_map *map);
 void		map_check(t_map map);
 void		find(t_map *map);
 
 void		*ft_calloc(size_t count, size_t size);
 size_t		ft_strlcpy(char *dst, char *src, size_t dstsize);
 void		error(void);
-int 		exit_e(void);
+int			exit_e(void);
 
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_back(t_list **lst, t_list *new);

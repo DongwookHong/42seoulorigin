@@ -6,7 +6,7 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:59:57 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 12:00:07 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:33:59 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	place_images(t_map *map)
 	}
 }
 
-int	show_map(t_map *map, int x, int y)
+int	show_map(t_map *map)
 {
 	base_map(map);
 	place_images(map);

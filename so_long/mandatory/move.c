@@ -6,7 +6,7 @@
 /*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:17:35 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 20:48:13 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:34:32 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	move_w(t_map *map)
 	}
 	if (map->map_down[i - 1][j] == 'E' && map->c == 0)
 		exit(0);
-	show_map(map, 0, 0);
+	show_map(map);
 }
 
 void	move_s(t_map *map)
@@ -51,7 +51,7 @@ void	move_s(t_map *map)
 	}
 	if (map->map_down[i + 1][j] == 'E' && map->c == 0)
 		exit(0);
-	show_map(map, 0, 0);
+	show_map(map);
 }
 
 void	move_a(t_map *map)
@@ -72,7 +72,7 @@ void	move_a(t_map *map)
 	}
 	if (map->map_down[i][j - 1] == 'E' && map->c == 0)
 		exit(0);
-	show_map(map, 0, 0);
+	show_map(map);
 }
 
 void	move_d(t_map *map)
@@ -93,5 +93,5 @@ void	move_d(t_map *map)
 	}
 	if (map->map_down[i][j + 1] == 'E' && map->c == 0)
 		exit(0);
-	show_map(map, 0, 0);
+	show_map(map);
 }

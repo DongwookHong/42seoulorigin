@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:29:32 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/17 15:54:33 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:26:42 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,21 @@ void	init_map(t_map *map)
 	i = 0;
 	map->map_down = (char **)calloc(map->height + 1, sizeof(char *));
 	map->check = (char **)calloc(map->height + 1, sizeof(char *));
-	if (!(map->map_down) || !(map->check))
+	map->do_check = (char **)calloc(map->height + 1, sizeof(char *));
+	if (!(map->map_down) || !(map->check) || !(map->do_check))
 		error(4);
 	while (i < map->height)
 	{
 		map->map_down[i] = (char *)calloc(map->width + 1, sizeof(char));
 		map->check[i] = (char *)calloc(map->width + 1, sizeof(char));
-		if (!(map->map_down[i]) || !(map->check[i]))
+		map->do_check[i] = (char *)calloc(map->height + 1, sizeof(char));
+		if (!(map->map_down[i]) || !(map->check[i]) || !(map->do_check[i]))
 			error(4);
 		i++;
 	}
 	map->map_down[i] = NULL;
 	map->check[i] = NULL;
+	map->do_check[i] = NULL;
 }
 
 void	dfs_base(t_map *map)
@@ -67,6 +70,8 @@ void	initialize_map(t_map *map)
 	map->e[0] = 0;
 	map->e[1] = 0;
 	map->c = 0;
+	map->copy = 0;
+	map->door = 1;
 	map->str = NULL;
 	map->mlx = NULL;
 	map->win = NULL;

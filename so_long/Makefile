@@ -40,7 +40,7 @@ re:
 	make all
 
 $(NAME):	$(OBJS) $(HEADER)
-	@make -C mlx
+	make -C mlx
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I. $(MLX)
 
 %.o : %.c $(HEADER)

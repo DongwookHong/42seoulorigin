@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:51:14 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/17 15:25:05 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:21:32 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_map
 	int		p[2];
 	int		e[2];
 	int		c;
+	int		copy;
+	int		door;
 	t_key	*move;
 	char	*str;
 	void	*mlx;
@@ -56,6 +58,7 @@ typedef struct s_map
 	int		check_x[4];
 	int		check_y[4];
 	char	**check;
+	char	**do_check;
 }				t_map;
 
 t_list		*read_map(int fd);

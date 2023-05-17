@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:51:37 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/17 15:56:51 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:47:43 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	find_c(t_map *map)
 		i++;
 	}
 	map->c = cnt;
+	map->copy = cnt;
 	return (cnt);
 }
 

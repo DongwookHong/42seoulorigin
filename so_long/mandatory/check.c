@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:42 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/17 15:41:24 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:40:39 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,36 +30,12 @@ void	square_check(t_map map)
 	}
 }
 
-void	surround(t_map map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < map.height)
-	{
-		j = 0;
-		while (j < map.width)
-		{
-			if (i == 0 || i == map.height - 1 || j == 0 || j == map.width - 1)
-			{
-				if (map.map_down[i][j] != '1')
-					error(1);
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
 void	check_factor(t_map map)
 {
 	int	i;
 	int	j;
-	int	k;
 
 	i = 0;
-	k = 0;
 	while (i < map.height)
 	{
 		j = 0;
@@ -69,14 +45,15 @@ void	check_factor(t_map map)
 				(map.map_down[i][j] == 'C') || (map.map_down[i][j] == 'P') ||
 				(map.map_down[i][j] == 'E')))
 				error(1);
-			if (map.check[i][j] == '1')
-				k++;
+			if (i == 0 || i == map.height - 1 || j == 0 || j == map.width - 1)
+			{
+				if (map.map_down[i][j] != '1')
+					error(1);
+			}
 			j++;
 		}
 		i++;
 	}
-	if (k != (map.height * map.width))
-		error(1);
 }
 
 void	dfs_exit(t_map *map, int cha_x, int cha_y)
@@ -94,8 +71,37 @@ void	dfs_exit(t_map *map, int cha_x, int cha_y)
 		if (x < 0 || y < 0 || x > map->height || y > map->width)
 			continue ;
 		if ((map->check[x][y] == '0') || (map->check[x][y] == 'P') || \
-		(map->check[x][y] == 'C') || (map->check[x][y] == 'E'))
+		(map->check[x][y] == 'C'))
+		{
+			if (map->check[x][y] == 'C')
+				map->copy--;
 			dfs_exit(map, x, y);
+		}
+		i++;
+	}
+}
+
+void	dfs_double(t_map *map, int cha_x, int cha_y)
+{
+	int	i;
+	int	x;
+	int	y;
+
+	i = 0;
+	map->do_check[cha_x][cha_y] = '1';
+	while (i < 4)
+	{
+		x = cha_x + map->check_x[i];
+		y = cha_y + map->check_y[i];
+		if (x < 0 || y < 0 || x > map->height || y > map->width)
+			continue ;
+		if ((map->do_check[x][y] == '0') || (map->do_check[x][y] == 'P') || \
+		(map->do_check[x][y] == 'E') || (map->do_check[x][y] == 'C'))
+		{
+			if (map->do_check[x][y] == 'E')
+				map->door--;
+			dfs_double(map, x, y);
+		}
 		i++;
 	}
 }
@@ -103,7 +109,11 @@ void	dfs_exit(t_map *map, int cha_x, int cha_y)
 void	map_check(t_map map)
 {
 	square_check(map);
-	surround(map);
-	dfs_exit(&map, map.p[0], map.p[1]);
 	check_factor(map);
+	dfs_exit(&map, map.p[0], map.p[1]);
+	if (map.copy != 0)
+		error(1);
+	dfs_double(&map, map.p[0], map.p[1]);
+	if (map.door != 0)
+		error(1);
 }

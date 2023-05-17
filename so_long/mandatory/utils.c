@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:03:14 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 11:03:31 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:19:36 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,14 @@ void	*ft_calloc(size_t count, size_t size)
 		return (0);
 	ft_memset(temp, 0, size * count);
 	return ((void *)temp);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

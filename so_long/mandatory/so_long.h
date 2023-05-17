@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:51:14 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 22:52:52 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:19:47 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_map
 }				t_map;
 
 t_list		*read_map(int fd);
-void		setting(int ac, char **av, t_map *map);
+void		setting(char **av, t_map *map);
 void		init_map(t_map *map);
 void		initialize_map(t_map *info);
 void		copy_map(t_map *map, t_list **head);
@@ -69,6 +69,7 @@ void		find(t_map *map);
 
 void		*ft_calloc(size_t count, size_t size);
 size_t		ft_strlcpy(char *dst, char *src, size_t dstsize);
+int			ft_strcmp(char *s1, char *s2);
 void		error(void);
 int			exit_e(void);
 

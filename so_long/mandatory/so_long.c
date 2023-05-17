@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:14:15 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 22:38:16 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:20:15 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	main(int ac, char **av)
 	t_map	map;
 
 	initialize_map(&map);
-	setting(ac, av, &map);
+	if (ac != 2)
+		error();
+	setting(av, &map);
 	map.mlx = mlx_init();
 	map.win = mlx_new_window(map.mlx, map.width * 50, map.height * 50, "map");
 	show_map(&map);

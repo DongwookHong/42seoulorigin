@@ -3,35 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   setting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:16:15 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 22:38:03 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:21:44 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	setting(int ac, char **av, t_map *map)
+void	setting(char **av, t_map *map)
 {
 	t_list	*head;
 	int		fd;
+	char	*filename;
+	int		len;
 
 	head = NULL;
-	if (ac != 2)
-		error();
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
-	{
 		error();
-		return ;
-	}
+	filename = av[1];
+	len = ft_strlen(filename);
+	if (len < 4 || ft_strcmp(&filename[len - 4], ".ber") != 0)
+		error();
 	head = read_map(fd);
 	if (!head)
-	{
 		error();
-		return ;
-	}
 	map->width = ft_strlen(head->content) - 1;
 	map->height = ft_lstsize(head);
 	init_map(map);

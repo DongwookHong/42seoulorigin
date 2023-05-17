@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   square_check.c                                     :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:42 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 22:03:04 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:41:24 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	square_check(t_map map)
 	{
 		len = ft_strlen(map.map_down[i]);
 		if (base != len)
-			error();
+			error(1);
 		i++;
 	}
 }
@@ -44,7 +44,7 @@ void	surround(t_map map)
 			if (i == 0 || i == map.height - 1 || j == 0 || j == map.width - 1)
 			{
 				if (map.map_down[i][j] != '1')
-					error();
+					error(1);
 			}
 			j++;
 		}
@@ -68,7 +68,7 @@ void	check_factor(t_map map)
 			if (!((map.map_down[i][j] == '1') || (map.map_down[i][j] == '0') ||
 				(map.map_down[i][j] == 'C') || (map.map_down[i][j] == 'P') ||
 				(map.map_down[i][j] == 'E')))
-				error();
+				error(1);
 			if (map.check[i][j] == '1')
 				k++;
 			j++;
@@ -76,7 +76,7 @@ void	check_factor(t_map map)
 		i++;
 	}
 	if (k != (map.height * map.width))
-		error();
+		error(1);
 }
 
 void	dfs_exit(t_map *map, int cha_x, int cha_y)

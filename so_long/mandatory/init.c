@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:29:32 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 22:03:58 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:54:33 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	key_init(t_map *map)
 
 	move = (t_key *)malloc(sizeof(t_key));
 	if (move == NULL)
-	{
-		error();
-		exit(1);
-	}
+		error(4);
 	move->row = map->p[0];
 	move->col = map->p[1];
 	map->move = move;
@@ -35,13 +32,13 @@ void	init_map(t_map *map)
 	map->map_down = (char **)calloc(map->height + 1, sizeof(char *));
 	map->check = (char **)calloc(map->height + 1, sizeof(char *));
 	if (!(map->map_down) || !(map->check))
-		error();
+		error(4);
 	while (i < map->height)
 	{
 		map->map_down[i] = (char *)calloc(map->width + 1, sizeof(char));
 		map->check[i] = (char *)calloc(map->width + 1, sizeof(char));
 		if (!(map->map_down[i]) || !(map->check[i]))
-			error();
+			error(4);
 		i++;
 	}
 	map->map_down[i] = NULL;

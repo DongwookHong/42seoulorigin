@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:51:14 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/17 15:19:47 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:25:05 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void		find(t_map *map);
 void		*ft_calloc(size_t count, size_t size);
 size_t		ft_strlcpy(char *dst, char *src, size_t dstsize);
 int			ft_strcmp(char *s1, char *s2);
-void		error(void);
+void		error(int flag);
 int			exit_e(void);
 
 t_list		*ft_lstnew(void *content);

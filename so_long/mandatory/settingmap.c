@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:15:20 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/17 14:29:47 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:02:30 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ t_list	*read_map(int fd)
 	str = get_next_line(fd);
 	if (!str)
 	{
-		error();
+		error(3);
 		close(fd);
 	}
 	while (str)
 	{
 		new = ft_lstnew(str);
 		if (!new)
-			error();
+			error(4);
 		ft_lstadd_back(&head, new);
 		str = get_next_line(fd);
 	}

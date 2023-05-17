@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:14:15 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/17 15:20:15 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:58:28 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 
 	initialize_map(&map);
 	if (ac != 2)
-		error();
+		error(3);
 	setting(av, &map);
 	map.mlx = mlx_init();
 	map.win = mlx_new_window(map.mlx, map.width * 50, map.height * 50, "map");

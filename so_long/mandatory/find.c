@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:51:37 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/16 11:51:38 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:56:51 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,5 @@ void	find(t_map *map)
 	door = find_e(map);
 	character = find_p(map);
 	if (obstacle < 1 || door != 1 || character != 1)
-	{
-		error();
-		return ;
-	}
+		error(1);
 }

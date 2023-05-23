@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:12:42 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/23 16:15:38 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:44:48 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	square_check(t_map map)
 	{
 		len = ft_strlen(map.map_down[i]);
 		if (base != len)
-				error(1);
+			error(1);
 		i++;
 	}
-	if (i == map.height-1)
+	if (i == map.height -1)
 	{
 		len = ft_strlen(map.map_down[i]);
-		if (base-1 != len)
-				error(1);
+		if (base - 1 != len)
+			error(1);
 	}
 }
 

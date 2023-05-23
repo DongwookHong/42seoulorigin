@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:29:32 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/23 18:21:42 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:43:49 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ void	key_init(t_map *map)
 
 void	init_map(t_map *map)
 {
-	// int	i;
-
-	// i = 0;
 	map->map_down = (char **)ft_calloc(map->height + 1, sizeof(char *));
 	map->check = (char **)ft_calloc(map->height + 1, sizeof(char *));
 	map->do_check = (char **)ft_calloc(map->height + 1, sizeof(char *));

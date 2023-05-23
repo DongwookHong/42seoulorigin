@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:14:15 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/23 18:32:08 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:40:44 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	t_map	map;	
+	t_map	map;
+
 	initialize_map(&map);
 	if (ac != 2)
 		error(3);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
+/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:16:15 by donghong          #+#    #+#             */
-/*   Updated: 2023/05/23 18:22:06 by donghong         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:45:09 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ void	setting(char **av, t_map *map)
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strcmp(&filename[len - 4], ".ber") != 0)
 		error(2);
-
 	head = read_map(fd);
 	if (!head)
 		error(3);
-	map->width = ft_strlen(head->content)-1;
+	map->width = ft_strlen(head->content) - 1;
 	map->height = ft_lstsize(head);
 	init_map(map);
 	copy_map(map, &head);

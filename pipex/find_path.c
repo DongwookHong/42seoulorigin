@@ -26,10 +26,10 @@ char *set_path(t_base *base, char **argv, int i)
     char *tmp;
     int k =0;
 
-    base->tot = ft_split(argv[i+1],' ');
+    base->cmd_abs = ft_split(argv[i+1],' ');
     while(base->path[k])
     {
-        tmp = ft_strjoin(base->path[k],base->tot[0]);
+        tmp = ft_strjoin(base->path[k],base->cmd_abs[0]);
         if(access(tmp,F_OK)==0)
             return tmp;
         k++;

@@ -24,7 +24,7 @@ typedef struct s_base{
     char *cmd_path;
     char **path;
     char *exc;
-    char **tot;
+    char **cmd_abs;
 }t_base;
 
 
@@ -42,5 +42,8 @@ size_t	ft_strlen(const char *s);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 
+void	file_error(char *err);
+void error(char *ch);
+void close_pipe(int i,t_base *base);
 
 #endif

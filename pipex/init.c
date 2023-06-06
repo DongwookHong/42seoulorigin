@@ -29,14 +29,14 @@ void	*ft_memset(void *b, int c, size_t len)
 void init_pipex(int ac,char **av,t_base *base)
 {
     base->infile =open(av[1],O_RDONLY);
-	if(base->infile == -1)
-        exit(1);
+	if(base->infile < 0)
+        file_error("Infile Error");
     base->outfile = open(av[ac-1], O_RDWR | O_CREAT | O_TRUNC, 0644);
     if (base->outfile == -1)
-        exit(1);
+        file_error("Outfile Error");
 	base->file_num = ac-3;
-    base->com = (t_pid *)malloc(base->file_num * sizeof(t_pid));
-    if (base->com == NULL)
-        return;	
+    base->com = (t_pid *)ft_calloc(base->file_num, sizeof(t_pid));
+	if (!base->com)
+		error("Memory Fail");	
     char **path = NULL;
 }

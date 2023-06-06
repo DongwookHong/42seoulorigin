@@ -4,8 +4,8 @@ void    child(int i,t_base *base, char **argv,char **envp)
 {
     if (i == base ->file_num-1)
     {
-	    close(base->com[i].fd[1]);
-        dup2(base->com[i].fd[0],STDIN_FILENO);
+	    close(base->com[i-1].fd[1]);
+        dup2(base->com[i-1].fd[0],STDIN_FILENO);
         dup2(base->outfile,STDOUT_FILENO);
         base->cmd_path = set_path(base,argv,i);
         execve(base->cmd_path,base->tot,envp);
@@ -28,7 +28,16 @@ void    child(int i,t_base *base, char **argv,char **envp)
         execve(base->cmd_path,base->tot,envp);
     }
 }
+void wait_ch(t_base *base)
+{
+    int i =0; 
 
+    while(i < base->file_num)
+    {
+        waitpid(base->com[i].pid, 0, WNOHANG);
+        i++;
+    }
+}
 
 void execute(t_base *base,char **av,char **envp )
 {
@@ -36,12 +45,17 @@ void execute(t_base *base,char **av,char **envp )
     while (i < base->file_num)
     {
         if(i < base->file_num-1 )
-            pipe(base->com[i].fd);
+        {
+            if(pipe(base->com[i].fd)<0)
+                file_error("PIPE Error");
+        }
         base->com[i].pid=fork();
         if (base->com[i].pid == 0)
         {
 		    child(i,base,av,envp);    
         }
+        close_pipe(i,base);
         i++;
     }
+    wait_ch(base);
 }

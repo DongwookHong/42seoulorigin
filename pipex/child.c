@@ -8,7 +8,7 @@ void    child(int i,t_base *base, char **argv,char **envp)
         dup2(base->com[i-1].fd[0],STDIN_FILENO);
         dup2(base->outfile,STDOUT_FILENO);
         base->cmd_path = set_path(base,argv,i);
-        execve(base->cmd_path,base->tot,envp);
+        execve(base->cmd_path,base->cmd_abs,envp);
     }
     else if (i == 0)
     {
@@ -16,7 +16,7 @@ void    child(int i,t_base *base, char **argv,char **envp)
         dup2(base->infile,STDIN_FILENO);
 	    dup2(base->com[i].fd[1], STDOUT_FILENO); 
         base->cmd_path = set_path(base,argv,i);
-        execve(base->cmd_path,base->tot,envp);
+        execve(base->cmd_path,base->cmd_abs,envp);
     }
     else 
     {
@@ -25,7 +25,7 @@ void    child(int i,t_base *base, char **argv,char **envp)
         dup2(base->com[i-1].fd[0], STDIN_FILENO);
         dup2(base->com[i].fd[1], STDOUT_FILENO);
         base->cmd_path = set_path(base,argv,i);
-        execve(base->cmd_path,base->tot,envp);
+        execve(base->cmd_path,base->cmd_abs,envp);
     }
 }
 void wait_ch(t_base *base)
@@ -34,7 +34,7 @@ void wait_ch(t_base *base)
 
     while(i < base->file_num)
     {
-        waitpid(base->com[i].pid, 0, WNOHANG);
+        waitpid(base->com[i].pid, 0, 0);
         i++;
     }
 }

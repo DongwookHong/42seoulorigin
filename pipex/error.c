@@ -8,7 +8,6 @@ void error(char *ch)
 
 void	file_error(char *err)
 {
-	write(2, "???", 3);
 	perror(err);
 	exit (1);
 }

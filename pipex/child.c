@@ -2,32 +2,30 @@
 
 void    child(int i,t_base *base, char **argv,char **envp)
 {
+    base->cmd_path = set_path(base,argv,i);
+    if(!base-> cmd_path)
+        exit(0);
     if (i == base ->file_num-1)
     {
 	    close(base->com[i-1].fd[1]);
         dup2(base->com[i-1].fd[0],STDIN_FILENO);
         dup2(base->outfile,STDOUT_FILENO);
-        base->cmd_path = set_path(base,argv,i);
-        execve(base->cmd_path,base->cmd_abs,envp);
     }
     else if (i == 0)
     {
         close(base->com[i].fd[0]);
         dup2(base->infile,STDIN_FILENO);
-	    dup2(base->com[i].fd[1], STDOUT_FILENO); 
-        base->cmd_path = set_path(base,argv,i);
-        execve(base->cmd_path,base->cmd_abs,envp);
+	    dup2(base->com[i].fd[1], STDOUT_FILENO);   
     }
     else 
     {
-        close(base->com[i-1].fd[1]);
         close(base->com[i].fd[0]);
         dup2(base->com[i-1].fd[0], STDIN_FILENO);
         dup2(base->com[i].fd[1], STDOUT_FILENO);
-        base->cmd_path = set_path(base,argv,i);
-        execve(base->cmd_path,base->cmd_abs,envp);
     }
+    execve(base->cmd_path,base->cmd_abs,envp);
 }
+
 void wait_ch(t_base *base)
 {
     int i =0; 

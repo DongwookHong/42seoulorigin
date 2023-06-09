@@ -1,0 +1,16 @@
+a.out
+child.c
+close.c
+error.c
+find_path.c
+gnl
+heredoc.c
+infile
+init.c
+out
+pipex.c
+pipex.h
+split.c
+test
+test.txt
+utils.c

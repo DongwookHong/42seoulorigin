@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <string.h>
-
+// #include "./gnl/get_next_line.h"
 #define cur 0;
 #define prev 1;
 
@@ -19,12 +19,14 @@ typedef struct s_pid{
 typedef struct s_base{
     int infile;
     int outfile;
+    int heredoc_file;
     int file_num;
     t_pid *com;
     char *cmd_path;
     char **path;
     char *exc;
     char **cmd_abs;
+    
 }t_base;
 
 

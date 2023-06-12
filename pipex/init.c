@@ -39,4 +39,7 @@ void init_pipex(int ac,char **av,t_base *base)
 	if (!base->com)
 		error("Memory Fail");	
     char **path = NULL;
+	char *cmd_path = NULL;
+	char *exc	= NULL;
+	char **cmd_abs = NULL;
 }

@@ -24,6 +24,8 @@ void    child(int i,t_base *base, char **argv,char **envp)
         dup2(base->com[i].fd[1], STDOUT_FILENO);
     }
     execve(base->cmd_path,base->cmd_abs,envp);
+    free(base->cmd_path);
+    free(base->cmd_abs);
 }
 
 void wait_ch(t_base *base)
@@ -56,4 +58,5 @@ void execute(t_base *base,char **av,char **envp )
         i++;
     }
     wait_ch(base);
+ 
 }

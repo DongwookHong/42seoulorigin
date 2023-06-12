@@ -12,3 +12,19 @@ void close_pipe(int i,t_base *base)
       close(base->com[i].fd[1]);
     }
 }
+
+void	parent_free(t_base *base)
+{
+	int	i;
+
+	i = 0;
+	close(base->infile);
+	close(base->outfile);
+	while (base->(*com)[i])
+	{
+		base->com[i] =NULL;
+		free(base->com[i]);
+		i++;
+	}
+	free(base->path);
+}

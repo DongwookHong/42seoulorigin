@@ -7,8 +7,6 @@
 #include <fcntl.h>
 #include <string.h>
 // #include "./gnl/get_next_line.h"
-#define cur 0;
-#define prev 1;
 
 typedef struct s_pid{
     pid_t pid;
@@ -19,14 +17,12 @@ typedef struct s_pid{
 typedef struct s_base{
     int infile;
     int outfile;
-    int heredoc_file;
     int file_num;
     t_pid *com;
     char *cmd_path;
     char **path;
     char *exc;
     char **cmd_abs;
-    
 }t_base;
 
 
@@ -47,5 +43,6 @@ void	*ft_calloc(size_t count, size_t size);
 void	file_error(char *err);
 void error(char *ch);
 void close_pipe(int i,t_base *base);
+void  parent_free(t_base *base);
 
 #endif

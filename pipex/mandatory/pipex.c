@@ -8,12 +8,8 @@ void leak_check()
 int main(int ac, char ** av, char **envp)
 {
     t_base base;
-    atexit(leak_check);
     if (ac != 5 )
-    {
-        perror("ERROR");
-        return (0);
-    }
+        error("Check arguments");
     init_pipex(ac,av,&base);
     ft_path(envp,&base);
     execute(&base,av,envp);

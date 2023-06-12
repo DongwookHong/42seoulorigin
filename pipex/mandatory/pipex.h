@@ -18,6 +18,7 @@ typedef struct s_base{
     int infile;
     int outfile;
     int file_num;
+    int here_doc;
     t_pid *com;
     char *cmd_path;
     char **path;
@@ -43,6 +44,6 @@ void	*ft_calloc(size_t count, size_t size);
 void	file_error(char *err);
 void error(char *ch);
 void close_pipe(int i,t_base *base);
-void  parent_free(t_base *base);
+void free_cmd(t_base *base);
 
 #endif

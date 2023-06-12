@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "unistd.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "__bit_reference": "c",
+        "algorithm": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "unordered_map": "c"
     }
 }

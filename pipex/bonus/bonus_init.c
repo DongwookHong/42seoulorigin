@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   bonus_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:01:58 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 15:41:36 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:47:19 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,26 @@ void	*ft_memset(void *b, int c, size_t len)
 	return ((void *)b);
 }
 
+void init_here(int ac,char **av, t_here *here)
+{
+	here->infile = open("heredoc", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (here->infile == -1)
+		file_error("Infile Fail");
+	here->outfile = open(av[ac - 1], O_RDWR | O_CREAT | O_APPEND, 0644);
+	if (here->outfile == -1)
+		file_error("Outfile failure");
+	here->limit = av[2];
+	if (!here ->limit)
+		file_error("NO limiter");
+	here -> len = ft_strlen(av[2]);
+	here ->com = (t_pid *)ft_calloc(here ->file_num, sizeof(t_pid));
+	if (!here ->com)
+		file_error("Memory Fail");
+	here ->path = NULL;
+	here ->cmd_path = NULL;
+	here ->cmd_abs = NULL;
+}
+
 void	init_pipex(int ac, char **av, t_base *base)
 {
 	base->infile = open(av[1], O_RDONLY);
@@ -46,7 +66,6 @@ void	init_pipex(int ac, char **av, t_base *base)
 	base->outfile = open(av[ac - 1], O_RDWR | O_CREAT | O_TRUNC, 0644);
 	if (base->outfile == -1)
 		file_error("Outfile Error");
-	base->file_num = ac - 3;
 	base->com = (t_pid *)ft_calloc(base->file_num, sizeof(t_pid));
 	if (!base->com)
 		file_error("Memory Fail");

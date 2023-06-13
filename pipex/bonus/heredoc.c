@@ -1,23 +1,53 @@
 #include "pipex.h"
 
+int check_exist(int ac,char **av)
+{
+   if (ft_strncmp("here_doc",av[1],9) == 0)
+        return 1;
+    return 0;
+}
 
-void check_here(int ac,char **av, t_base *base)
+void here_doc(int ac,char **av, t_here *here)
 {
     
     int i =0;
     char *str;
-    
-    if (ft_strncmp("here_doc",av[1],9))
+   
+   
+    str =  get_next_line(STDIN_FILENO);
+    if (!str)
+        return ;
+    if ((ft_strncmp(here ->limit, str, here->len) == 0) \
+            && (here ->len == (ft_strlen(str) - 1)))
     {
-        base->here_doc=open(av[1], O_RDWR | O_CREAT | O_TRUNC, 0644);
+        free(str);
+        return ; 
+    }
+    while(str)
+    {
+        write(here->infile,str,ft_strlen(str));
+        free(str);
         str =  get_next_line(STDIN_FILENO);
-        while(str)
+        if ((ft_strncmp(here ->limit, str, here->len) == 0) \
+            && (here ->len == (ft_strlen(str) - 1)))
         {
-            write(base->here_doc,str,ft_strlen(str));
-            if(ft_strncmp(str ,av[2],ft_strlen(av[2]))==0)//strcmp;
-                return ;
-            str =  get_next_line(STDIN_FILENO);
-        }  
+            free(str);
+            return ; 
+        }
     }  
+      
 }
-//>> append 넣어주기 
+
+void again(t_here *here)
+{
+    close(here->infile);
+	here->infile = open("heredoc", O_RDONLY);
+	if (here->infile == -1)
+		perror("File fail");
+}
+
+void combine(int ac, char **av, t_here *here)
+{
+    here_doc(ac,av,here);
+    again(here);
+}

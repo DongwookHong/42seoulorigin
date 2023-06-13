@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_path.c                                        :+:      :+:    :+:   */
+/*   bonus_find_path.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:39:37 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 17:41:47 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:41:33 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_path(char **env, t_base *base)
 	while (base->path[i])
 	{
 		temp = base->path[i];
-		base->path[i] = ft_strjoin(temp, "/");
+		base->path[i] = ft_strjoin_bonus(temp, "/");
 		free(temp);
 		i++;
 	}
@@ -78,7 +78,7 @@ char	*search_path(t_base *base, int i)
 	k = 0;
 	while (base->path[k])
 	{
-		tmp = ft_strjoin(base->path[k], base->cmd_abs[0]);
+		tmp = ft_strjoin_bonus(base->path[k], base->cmd_abs[0]);
 		if (access(tmp, X_OK) == 0)
 			return (tmp);
 		free(tmp);

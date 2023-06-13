@@ -6,6 +6,9 @@
         "algorithm": "c",
         "bitset": "c",
         "chrono": "c",
-        "unordered_map": "c"
+        "unordered_map": "c",
+        "pipex.h": "c",
+        "stdio.h": "c",
+        "get_next_line.h": "c"
     }
 }

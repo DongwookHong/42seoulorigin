@@ -6,13 +6,13 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:22:48 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 16:41:48 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:09:43 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static  char	**get_path_envp(char **env)
+static char	**get_path_envp(char **env)
 {
 	char	*path;
 
@@ -22,7 +22,7 @@ static  char	**get_path_envp(char **env)
 	return (ft_split(path, ':'));
 }
 
- void	ft_bonus_path(char **env, t_here *here)
+void	ft_bonus_path(char **env, t_here *here)
 {
 	int		i;
 	char	*temp;
@@ -40,7 +40,7 @@ static  char	**get_path_envp(char **env)
 	}
 }
 
-static  int	check_path(char *str)
+static int	check_path(char *str)
 {
 	if (!ft_strncmp("./", str, 2) || \
 		!ft_strncmp("../", str, 3) || \

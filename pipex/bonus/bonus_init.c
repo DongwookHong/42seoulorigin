@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:01:58 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 16:47:19 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:07:19 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	return ((void *)b);
 }
 
-void init_here(int ac,char **av, t_here *here)
+void	init_here(int ac, char **av, t_here *here)
 {
 	here->infile = open("heredoc", O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (here->infile == -1)

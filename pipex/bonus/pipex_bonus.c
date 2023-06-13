@@ -1,9 +1,14 @@
 #include "pipex.h"
 
+void system_ch()
+{
+    system("leaks a.out");
+}
 int main(int ac, char ** av, char **envp)
 {
     t_base base;
     t_here here;
+    atexit(system_ch);
     if (ac < 5)
         file_error("Check arguments");
     here.check_here = check_exist(ac,av);
@@ -16,6 +21,7 @@ int main(int ac, char ** av, char **envp)
         combine(ac, av, &here);
         ft_bonus_path(envp,&here);
         bonus_execute(&here,av,envp);
+        
 	}
 	else
     {

@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:21:25 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 17:44:57 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:29:14 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	link_pipe(int i, t_base *base)
 	else if (i == 0)
 	{
 		if (close(base->com[i].fd[0]) == -1 || \
-			dup2(base->infile, STDIN_FILENO) == -1)// || \
-			// dup2(base->com[i].fd[1], STDOUT_FILENO) == -1)
+			dup2(base->infile, STDIN_FILENO) == -1 || \
+			dup2(base->com[i].fd[1], STDOUT_FILENO) == -1)
 			file_error("Link Fail");
 	}
 	else

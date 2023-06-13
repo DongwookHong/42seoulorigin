@@ -1,4 +1,5 @@
 a.out
+ab
 bonus_child.c
 bonus_close.c
 bonus_error.c
@@ -11,6 +12,7 @@ gnl
 heredoc
 heredoc.c
 infile
+k
 out
 outfile
 pipe.c

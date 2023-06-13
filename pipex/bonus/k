@@ -11,6 +11,7 @@ gnl
 heredoc
 heredoc.c
 infile
+k
 out
 outfile
 pipe.c

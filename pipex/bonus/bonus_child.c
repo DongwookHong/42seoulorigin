@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:21:25 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 17:26:08 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:59:18 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	execute_child_process(int i, t_base *base, char **av, char **envp)
 		file_error("Command Fail");
 }
 
-
-
 void	wait_child_processes(t_base *base)
 {
 	int	i;
@@ -59,16 +57,14 @@ void	wait_child_processes(t_base *base)
 	}
 }
 
-void	execute(t_base *base,char **av, char **envp)
+void	execute(t_base *base, char **av, char **envp)
 {
 	int	i;
 
 	i = 0;
-	
-
 	while (i < base->file_num)
 	{
-		if (i < base->file_num- 1)
+		if (i < base->file_num - 1)
 		{
 			if (pipe(base->com[i].fd) < 0)
 				file_error("PIPE Error");
@@ -80,10 +76,8 @@ void	execute(t_base *base,char **av, char **envp)
 		{
 			link_pipe(i, base);
 			execute_child_process(i, base, av, envp);
-		
 		}
 		close_pipe(i, base);
-	
 		i++;
 	}
 	wait_child_processes(base);

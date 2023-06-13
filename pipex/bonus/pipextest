@@ -73,7 +73,7 @@ fi
 echo -e "\n\n\n♡⑅·*˖·. bonus .·˖*·⑅♡"
 
 echo -e "\n* ੈ✩‧₊˚* ੈ✩‧₊ test8 : grep \" \" | wc -l | cat -e"
-./pipex "${infile}" "grep \" \"" "wc -l" "cat -e" "${outfile}"
+./a.out "${infile}" "ls" "wc -l" "cat -e" "${outfile}"
 if [ -f "${outfile}" ]
 then
 	cat "${outfile}"
@@ -81,7 +81,7 @@ then
 fi
 
 echo -e "\n\n* ੈ✩‧₊˚* ੈ✩‧₊ test9 : cat -e | cat -e | tr -d '$'"
-./pipex "${infile}" "cat -e" "cat -e" "tr -d '$'" "${outfile}"
+./a.out "${infile}" "cat -e" "cat -e" "head -3"  "${outfile}"
 if [ -f "${outfile}" ]
 then
 	cat "${outfile}"
@@ -94,7 +94,7 @@ echo -e "\n\n\n♡⑅·*˖·. here_doc .·˖*·⑅♡"
 
 echo -e "\n* ੈ✩‧₊˚* ੈ✩‧₊ test10 : wc -l | cat -e | cat -e"
 echo -e "* ੈ✩‧₊˚* ੈ✩‧₊ Limiter : END"
-./pipex here_doc END "wc -l" "cat -e" "cat -e" "${outfile}"
+./a.out here_doc END "wc -l" "cat -e" "cat -e" "${outfile}"
 if [ -f "${outfile}" ]
 then
 	cat "${outfile}"

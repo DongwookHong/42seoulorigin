@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:51:13 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 17:22:19 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/13 22:00:17 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	free_cmd(t_base *base)
 		i++;
 	}
 	free(base->path);
-	free(base->cmd_abs);
 	free(base->com);
 }
 
@@ -68,6 +67,5 @@ void	bonus_free_cmd(t_here *here)
 		i++;
 	}
 	free(here->path);
-	free(here->cmd_abs);
 	free(here->com);
 }

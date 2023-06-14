@@ -9,6 +9,8 @@
         "unordered_map": "c",
         "pipex.h": "c",
         "stdio.h": "c",
-        "get_next_line.h": "c"
+        "get_next_line.h": "c",
+        "__locale": "c",
+        "locale": "c"
     }
 }

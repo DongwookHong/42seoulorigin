@@ -6,11 +6,11 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:22:48 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 23:09:43 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:27:42 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "bonus_pipex.h"
 
 static char	**get_path_envp(char **env)
 {
@@ -67,10 +67,10 @@ char	*bonus_set_path(t_here *here, char **argv, int i)
 		return (NULL);
 	}
 	else
-		return (search_bonus_path(here, i));
+		return (search_bonus_path(here));
 }
 
-char	*search_bonus_path(t_here *here, int i)
+char	*search_bonus_path(t_here *here)
 {
 	char	*tmp;
 	int		k;

@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:08:27 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 17:44:19 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:26:55 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	init_pipex(int ac, char **av, t_base *base);
 void	ft_path(char **env, t_base *base);
 char	*set_path(t_base *base, char **argv, int i);
 void	execute(t_base *base, char **av, char **envp);
-char	*search_path(t_base *base, int i);
+char	*search_path(t_base *base);
 
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);

@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:39:37 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 17:41:47 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:26:45 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ char	*set_path(t_base *base, char **argv, int i)
 		return (NULL);
 	}
 	else
-		return (search_path(base, i));
+		return (search_path(base));
 }
 
-char	*search_path(t_base *base, int i)
+char	*search_path(t_base *base)
 {
 	char	*tmp;
 	int		k;

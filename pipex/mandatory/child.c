@@ -6,7 +6,7 @@
 /*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:21:25 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 18:29:14 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:43:58 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	execute(t_base *base, char **av, char **envp)
 		{
 			link_pipe(i, base);
 			execute_child_process(i, base, av, envp);
-			printf("%p\n", base->cmd_abs);
 		}
 		close_pipe(i, base);
 		i++;

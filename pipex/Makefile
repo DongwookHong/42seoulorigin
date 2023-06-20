@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 HEADER	=	mandatory/pipex.h
-BONUS_HEADER = bonus/bonus_pipex.h
+BONUS_HEADER = bonus/pipex_bonus.h
 
 SRCS = mandatory/pipex.c \
 	mandatory/child.c \
@@ -17,17 +17,17 @@ SRCS = mandatory/pipex.c \
 	mandatory/utils.c
 	
 
-BONUS_SRCS = 	bonus/bonus_pipex.c \
-	bonus/bonus_child.c \
-	bonus/bonus_close.c \
-	bonus/bonus_error.c \
-	bonus/bonus_find_path.c \
-	bonus/bonus_heredoc.c \
-	bonus/bonus_init.c \
-	bonus/bonus_pipe.c \
-	bonus/bonus_set_path.c \
-	bonus/bonus_split.c \
-	bonus/bonus_utils.c \
+BONUS_SRCS = 	bonus/pipex_bonus.c \
+	bonus/child_bonus.c \
+	bonus/close_bonus.c \
+	bonus/error_bonus.c \
+	bonus/find_path_bonus.c \
+	bonus/heredoc_bonus.c \
+	bonus/init_bonus.c \
+	bonus/pipe_bonus.c \
+	bonus/set_path_bonus.c \
+	bonus/split_bonus.c \
+	bonus/utils_bonus.c \
 	bonus/gnl/get_next_line.c \
 	bonus/gnl/get_next_line_utils.c
 
@@ -36,7 +36,7 @@ B_OBJS = $(BONUS_SRCS:%.c=%.o)
 
 ifdef WITH_BONUS
 	OBJS = $(B_OBJS)
-	HEADER = bonus/bonus_pipex.h
+	HEADER = bonus/pipex_bonus.h
 else
 	OBJS = $(M_OBJS)
 	HEADER = mandatory/pipex.h

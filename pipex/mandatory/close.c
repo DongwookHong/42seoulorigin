@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:51:13 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/13 17:46:47 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:13:33 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	free_cmd(t_base *base)
 		free(base->path[i]);
 		i++;
 	}
+	if (base->infile < 0)
+		file_error("Infile Error");
 	free(base->path);
 	free(base->com);
 }

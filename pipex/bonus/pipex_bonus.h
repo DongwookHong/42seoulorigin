@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_pipex.h                                      :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:08:27 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/14 17:00:12 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:35:19 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <fcntl.h>
 # include <string.h>
 # include "./gnl/get_next_line.h"
+
+# define heredoc "301F13CE-968F-46BA-BE71-6E7650DE199C"
 
 typedef struct s_pid
 {

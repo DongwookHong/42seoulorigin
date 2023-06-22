@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_close.c                                      :+:      :+:    :+:   */
+/*   close_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:51:13 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/14 16:22:40 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:38:41 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	free_cmd(t_base *base)
 		free(base->path[i]);
 		i++;
 	}
+	if (base->infile < 0)
+		perror("Infile Error");
 	free(base->path);
 	free(base->com);
 }
@@ -66,6 +68,8 @@ void	bonus_free_cmd(t_here *here)
 		free(here->path[i]);
 		i++;
 	}
+	if (here->infile == -1)
+		perror("Infile Error");
 	free(here->path);
 	free(here->com);
 }

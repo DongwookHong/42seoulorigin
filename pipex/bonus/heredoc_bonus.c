@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_heredoc.c                                    :+:      :+:    :+:   */
+/*   heredoc_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 23:23:52 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/14 16:26:11 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/22 01:15:22 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ int	check_exist(char **av)
 
 void	here_doc(t_here *here)
 {
-	int		i;
 	char	*str;
 
-	i = 0;
 	str = get_next_line(STDIN_FILENO);
 	if (!str)
 		return ;

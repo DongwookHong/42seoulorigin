@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_init.c                                       :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:01:58 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/14 16:22:29 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:38:37 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ void	*ft_memset(void *b, int c, size_t len)
 void	init_here(int ac, char **av, t_here *here)
 {
 	here->infile = open("heredoc", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (here->infile == -1)
-		perror("Infile Error");
 	here->outfile = open(av[ac - 1], O_RDWR | O_CREAT | O_APPEND, 0644);
 	if (here->outfile == -1)
 		file_error("Outfile failure");
@@ -61,8 +59,6 @@ void	init_here(int ac, char **av, t_here *here)
 void	init_pipex(int ac, char **av, t_base *base)
 {
 	base->infile = open(av[1], O_RDONLY);
-	if (base->infile < 0)
-		perror("Infile Error");
 	base->outfile = open(av[ac - 1], O_RDWR | O_CREAT | O_TRUNC, 0644);
 	if (base->outfile == -1)
 		file_error("Outfile Error");

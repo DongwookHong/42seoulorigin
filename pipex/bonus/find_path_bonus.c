@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_find_path.c                                  :+:      :+:    :+:   */
+/*   find_path_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 19:39:37 by donghong          #+#    #+#             */
-/*   Updated: 2023/06/14 16:23:21 by donghong         ###   ########.fr       */
+/*   Updated: 2023/06/22 01:14:41 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ int	check_path(char *str)
 char	*set_path(t_base *base, char **argv, int i)
 {
 	char	*tmp;
-	int		k;
-
-	k = 0;
+	
 	base->cmd_abs = ft_split(argv[i + 2], ' ');
 	if (!base->cmd_abs[0][0])
 		file_error("wrong argument");

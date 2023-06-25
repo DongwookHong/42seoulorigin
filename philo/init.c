@@ -22,11 +22,11 @@ void init_info(t_info *info,int ac, char **av)
 
 void init_philo(t_info *info,t_philo **philo,t_data data)
 {
+    info->forks= (t_data *)ft_calloc(info->ppl,sizeof(t_data));
     *philo = (t_philo *)ft_calloc(info->ppl,sizeof(t_philo));
     if (!*philo)
         exit(1);
     int i =0;
-    
     pthread_mutex_init(&data.mutex,NULL);
     while(i < info->ppl)
     {

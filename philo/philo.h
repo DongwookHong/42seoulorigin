@@ -15,7 +15,7 @@ typedef struct s_info
    int time_to_eat;
    int time_to_sleep;
    int must_eat; 
-   int number_of_forks;
+   t_data *forks;
    unsigned long    start;
 }t_info;
 

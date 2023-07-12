@@ -32,31 +32,31 @@
 
 
 
-void child_handler(int signum)
-{
-    if (signum == SIGINT)
-    {
-		write(1, "\n", 1);//개행 문자를 표준 출력으로 직접 쓰는 것으로, 현재 입력 라인이 종료되었음을 나타냅니다.
-		rl_on_new_line();//readline 라이브러리 함수로, 현재 입력 라인을 새 줄로 이동시킵니다.
-		rl_replace_line("", 0);//는 입력 라인을 빈 문자열로 대체하는 역할을 합니다.  이로 인해 현재 입력 라인이 화면에서 사라지고, 커서는 다음 줄로 이동합니다. 
-		rl_redisplay();// readline 라이브러리 함수로, 화면에 변경된 입력 라인을 다시 표시합니다.
-        exit(0);
-	}
+// void child_handler(int signum)
+// {
+//     if (signum == SIGINT)
+//     {
+// 		write(1, "\n", 1);//개행 문자를 표준 출력으로 직접 쓰는 것으로, 현재 입력 라인이 종료되었음을 나타냅니다.
+// 		rl_on_new_line();//readline 라이브러리 함수로, 현재 입력 라인을 새 줄로 이동시킵니다.
+// 		rl_replace_line("", 0);//는 입력 라인을 빈 문자열로 대체하는 역할을 합니다.  이로 인해 현재 입력 라인이 화면에서 사라지고, 커서는 다음 줄로 이동합니다. 
+// 		rl_redisplay();// readline 라이브러리 함수로, 화면에 변경된 입력 라인을 다시 표시합니다.
+//         exit(0);
+// 	}
    
-}
+// }
 
-void main_signal()
-{
-    sig sign;
+// void main_signal()
+// {
+//     sig sign;
 
-    sign.sa_handler =  signal_handler; 
-    sigemptyset(&sign.sa_mask);// 시그널 집합을 초기화해주는 역할   mask 의 역할 ->  시그널 중복방지 
-    sign.sa_flags=0; // flag
-    if(sigaction(SIGINT, &sign, NULL) == -1)
-        exit(1);
-    if(sigaction(SIGQUIT, &sign, NULL) == -1)
-        exit(1);
-}
+//     sign.sa_handler =  signal_handler; 
+//     sigemptyset(&sign.sa_mask);// 시그널 집합을 초기화해주는 역할   mask 의 역할 ->  시그널 중복방지 
+//     sign.sa_flags=0; // flag
+//     if(sigaction(SIGINT, &sign, NULL) == -1)
+//         exit(1);
+//     if(sigaction(SIGQUIT, &sign, NULL) == -1)
+//         exit(1);
+// }
 
 
 

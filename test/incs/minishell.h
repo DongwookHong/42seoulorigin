@@ -14,7 +14,6 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
-#include "hash.h"
 #include "bulit.h"
 #include "../libft/libft.h"
 

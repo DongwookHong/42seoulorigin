@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   d_signpre.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wonhshin <wonhshin@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 22:36:46 by wonhshin          #+#    #+#             */
-/*   Updated: 2023/08/15 14:48:39 by wonhshin         ###   ########.fr       */
+/*   Updated: 2023/10/12 02:22:08 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ t_bool	data_prev(t_data *data, t_token **token)
 
 t_bool	pre_check(t_data *data, t_token **token)
 {
-	t_token	*prev;
+	// t_token	*prev;
 
-	prev = NULL;
+	// prev = NULL;
 	if (!(data->tokens))
 	{
 		if (!(*token))

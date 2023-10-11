@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:07:51 by wonhshin          #+#    #+#             */
-/*   Updated: 2023/08/17 18:28:05 by donghong         ###   ########.fr       */
+/*   Updated: 2023/10/12 02:21:54 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /* -- include line -- */
 
-# include <term.h>
+// # include <term.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>

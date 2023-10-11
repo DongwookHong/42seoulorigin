@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 23:06:43 by wonhshin          #+#    #+#             */
-/*   Updated: 2023/08/17 17:56:26 by donghong         ###   ########.fr       */
+/*   Updated: 2023/10/12 02:21:48 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av, char **env)
 	(void)av;
 	data = new_data();
 	env_init(data, env);
-	init_base(ac);
+	// init_base(ac);
 	data->env_array = arr_in_env(data);
 	if (!data->env_array)
 		err_msg("bash");

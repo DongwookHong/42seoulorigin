@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quote_dsign.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: donghong <donghong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: donghong < donghong@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 23:13:12 by wonhshin          #+#    #+#             */
-/*   Updated: 2023/08/17 18:33:52 by donghong         ###   ########.fr       */
+/*   Updated: 2023/10/12 02:22:18 by donghong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void	quote_dsign(t_data *data, t_token **token, int *i)
 {
 	char	*temp;
 	char	*envs;
-	int		ques;
+	// int		ques;
 
 	++(*i);
 	envs = NULL;
-	ques = 0;
+	// ques = 0;
 	if (data->input[*i] == '?')
 	{
 		signal_quo(token, i);

@@ -1,0 +1,13 @@
+gnl / getnext_line.C
+include / cube3d.h
+        / screen.h
+        /update.h
+libft   /lstnew.C
+        /lstdelete.c
+mandatory /cube3d.C
+          /init.C
+          /maps.C
+
+mlx / mlx
+
+makefile

@@ -6,9 +6,9 @@
 
 
 void print_form(std::string str);
-void base_print(int num);
+void base_print();
 std::string over_len(std::string str);
-void check_len(std::string str);
+void check_len(std::string str,int num);
 void get_line(std::string &str);
 bool empty_check(const std::string& str);
 
@@ -46,7 +46,7 @@ void exe()
 					pb.Search();
 					break;
 				case 3:
-					exit(0);
+					std::exit(0);
 					break;
 				default:
 					break;
@@ -132,13 +132,13 @@ void PhoneBook::Search()
 {
 	int i = 0;
 
-	base_print(1);
+	base_print();
 	while(i<CountContact)
 	{
-		check_len(this->contact[i].getIndex());
-		check_len(this->contact[i].getFname());
-		check_len(this->contact[i].getLname());
-		check_len(this->contact[i].getNname());
+		check_len(this->contact[i].getIndex(),1);
+		check_len(this->contact[i].getFname(),1);
+		check_len(this->contact[i].getLname(),1);
+		check_len(this->contact[i].getNname(),1);
 		std::cout<<std::endl;
 		i++;
 	}
@@ -166,29 +166,46 @@ void PhoneBook::Search()
 	}
 	else
 	{
-		base_print(2);
-		check_len(this->contact[num%8].getIndex());
-		check_len(this->contact[num%8].getFname());
-		check_len(this->contact[num%8].getLname());
-		check_len(this->contact[num%8].getNname());
-		check_len(this->contact[num%8].getNum());
-		check_len(this->contact[num%8].getSecret());
+		// base_print(2);
+		std::cout<<"     Index: ";
+		check_len(this->contact[num%8].getIndex(),0);
+		std::cout<<std::endl;
+		std::cout<<"First Name: ";
+		check_len(this->contact[num%8].getFname(),0);
+		std::cout<<std::endl;
+		std::cout<<"Last  Name: ";
+		check_len(this->contact[num%8].getLname(),0);
+		std::cout<<std::endl;
+		std::cout<<"Nick  Name: ";
+		check_len(this->contact[num%8].getNname(),0);
+		std::cout<<std::endl;
+		std::cout<<"Phone  NUM: ";
+		check_len(this->contact[num%8].getNum(),0);
+		std::cout<<std::endl;
+		std::cout<<"DK  Secret: ";
+		check_len(this->contact[num%8].getSecret(),0);
 		std::cout<<std::endl;
 	}
 	
 }
 
-void check_len(std::string str)
+void check_len(std::string str,int num)
 {
 	int namecount;
 	namecount =str.length();
 	if (namecount <= 10 && namecount >= 0){
 		print_form(str);
-		std::cout << "|";
+		if (num == 1)
+			std::cout << "|";
+		else
+			return ;
 	}
 	else{
 		print_form(over_len(str));
-		std::cout << "|";
+		if (num == 1)
+			std::cout << "|";
+		else 
+			return ;
 	}
 }
 
@@ -207,35 +224,24 @@ std::string over_len(std::string str)
 	return Change;
 }
 
-void base_print(int num)
+void base_print()
 {
-	if (num == 1)
-	{
-		std::cout <<"  Index   "<< "|";
-		std::cout <<"First Name"<< "|";
-		std::cout <<"Last  Name"<< "|";
-		std::cout <<"Nick  Name"<< "|"<< std::endl;
-	}
-	if (num ==2)
-	{
-		std::cout <<"  Index   "<< "|";
-		std::cout <<"First Name"<< "|";
-		std::cout <<"Last  Name"<< "|";
-		std::cout <<"Nick  Name"<< "|";
-		std::cout <<"Phone  NUM"<< "|";
-		std::cout <<"DK  Secret"<< "|"<< std::endl;
-	}
+	
+	std::cout <<"     Index"<< "|";
+	std::cout <<"First Name"<< "|";
+	std::cout <<"Last  Name"<< "|";
+	std::cout <<"Nick  Name"<< "|"<< std::endl;
 }
 
 void get_line(std::string &str)
 {
 	std::getline(std::cin, str);
     if (std::cin.eof())
-       exit(1);
+       std::exit(1);
 }
 
 bool empty_check(const std::string& str) {
-    for (int i = 0; i < str.length(); i++) {
+    for (size_t i = 0; i < str.length(); i++) {
         if (!isspace(str[i])) { 
             return false;
         }

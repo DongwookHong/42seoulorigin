@@ -20,9 +20,9 @@ class PhoneBook
 };
 
 void exe();
-void base_print(int num);
+void base_print();
 void check_len(std::string str);
 std::string over_len(std::string str);
-void print_form(std::string str);
+void print_form(std::string str,int num);
 void get_line(std::string &str);
 bool empty_check(const std::string& str);
